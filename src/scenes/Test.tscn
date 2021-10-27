@@ -6,13 +6,28 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="drop_zone" parent="." instance=ExtResource( 2 )]
-position = Vector2( 248, 196 )
+position = Vector2( 204, 536 )
 
 [node name="drop_zone2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 468, 174 )
+position = Vector2( 524, 532 )
+
+[node name="drop_zone4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 121, 72 )
+
+[node name="drop_zone5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 212, 180 )
+
+[node name="drop_zone6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 285, 297 )
+
+[node name="Node2D3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 561, 535 )
 
 [node name="Node2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 188, 86 )
+position = Vector2( 213, 537 )
 
 [node name="drop_zone3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 446, 356 )
+position = Vector2( 844, 543 )
+
+[node name="Node2D2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 899, 497 )
