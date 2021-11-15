@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/scripts/ui/buttons/quitGameButton.gd" type="Script" id=1]
 [ext_resource path="res://src/scenes/Test.gd" type="Script" id=2]
 [ext_resource path="res://assets/fonts/Boxy-Bold.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/music/theme_185bpm.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/music/button_sound.wav" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -51,4 +52,9 @@ __meta__ = {
 stream = ExtResource( 4 )
 autoplay = true
 
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[connection signal="mouse_entered" from="Control/newGameButton" to="." method="_on_newGameButton_mouse_entered"]
 [connection signal="button_up" from="Control/quitGameButton" to="Control/quitGameButton" method="_on_Button2_button_up"]
+[connection signal="mouse_entered" from="Control/quitGameButton" to="." method="_on_quitGameButton_mouse_entered"]
