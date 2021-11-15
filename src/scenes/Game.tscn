@@ -48,6 +48,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="SettingsButton" type="Button" parent="Control"]
+margin_left = 596.0
+margin_top = 188.0
+margin_right = 1020.0
+margin_bottom = 274.0
+rect_pivot_offset = Vector2( 158, 43 )
+custom_fonts/font = SubResource( 1 )
+text = "Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="quitGameButton" type="Button" parent="Control"]
 margin_left = 596.0
 margin_top = 508.0
@@ -69,5 +81,6 @@ stream = ExtResource( 5 )
 
 [connection signal="mouse_entered" from="Control/newGameButton" to="." method="_on_Button_mouse_entered"]
 [connection signal="mouse_entered" from="Control/continueButton" to="." method="_on_Button_mouse_entered"]
+[connection signal="mouse_entered" from="Control/SettingsButton" to="." method="_on_Button_mouse_entered"]
 [connection signal="button_up" from="Control/quitGameButton" to="Control/quitGameButton" method="_on_Button2_button_up"]
 [connection signal="mouse_entered" from="Control/quitGameButton" to="." method="_on_Button_mouse_entered"]
