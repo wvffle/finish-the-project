@@ -12,8 +12,8 @@ func _ready():
 
 func _process(delta):
 	
-	if $AudioStreamPlayer2D.playing == false:
-		$AudioStreamPlayer2D.play()
+	if $AudioStreamPlayer.playing == false:
+		$AudioStreamPlayer.play()
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
