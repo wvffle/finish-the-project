@@ -23,14 +23,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="Control"]
-margin_left = 600.0
-margin_top = 2.0
-margin_right = 1024.0
-margin_bottom = 88.0
+[node name="newGameButton" type="Button" parent="Control"]
+margin_left = 596.0
+margin_top = -3.0
+margin_right = 1020.0
+margin_bottom = 83.0
 rect_pivot_offset = Vector2( 158, 43 )
 custom_fonts/font = SubResource( 1 )
-text = "Start Game"
+text = "New Game"
 __meta__ = {
 "_edit_use_anchors_": false
 }
