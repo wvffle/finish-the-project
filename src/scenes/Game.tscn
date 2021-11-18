@@ -17,10 +17,10 @@ font_data = ExtResource( 1 )
 script = ExtResource( 3 )
 
 [node name="Control" type="Control" parent="."]
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 1030.0
-margin_bottom = 612.0
+margin_left = 9.0
+margin_top = 7.0
+margin_right = 1031.0
+margin_bottom = 611.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -62,6 +62,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ShopButton" type="Button" parent="Control"]
+margin_left = 596.0
+margin_top = 282.0
+margin_right = 1020.0
+margin_bottom = 368.0
+rect_pivot_offset = Vector2( 158, 43 )
+custom_fonts/font = SubResource( 1 )
+text = "Shop"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="quitGameButton" type="Button" parent="Control"]
 margin_left = 596.0
 margin_top = 508.0
@@ -84,5 +96,6 @@ stream = ExtResource( 5 )
 [connection signal="mouse_entered" from="Control/newGameButton" to="." method="_on_Button_mouse_entered"]
 [connection signal="mouse_entered" from="Control/continueButton" to="." method="_on_Button_mouse_entered"]
 [connection signal="mouse_entered" from="Control/SettingsButton" to="." method="_on_Button_mouse_entered"]
+[connection signal="mouse_entered" from="Control/ShopButton" to="." method="_on_Button_mouse_entered"]
 [connection signal="button_up" from="Control/quitGameButton" to="Control/quitGameButton" method="_on_Button2_button_up"]
 [connection signal="mouse_entered" from="Control/quitGameButton" to="." method="_on_Button_mouse_entered"]
