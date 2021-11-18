@@ -26,9 +26,9 @@ __meta__ = {
 }
 
 [node name="newGameButton" type="Button" parent="Control"]
-margin_left = 596.0
+margin_left = 597.0
 margin_top = -4.0
-margin_right = 1020.0
+margin_right = 1021.0
 margin_bottom = 82.0
 rect_pivot_offset = Vector2( 158, 43 )
 custom_fonts/font = SubResource( 1 )
@@ -94,6 +94,7 @@ autoplay = true
 stream = ExtResource( 5 )
 
 [connection signal="mouse_entered" from="Control/newGameButton" to="." method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="Control/newGameButton" to="." method="_on_newGameButton_pressed"]
 [connection signal="mouse_entered" from="Control/continueButton" to="." method="_on_Button_mouse_entered"]
 [connection signal="mouse_entered" from="Control/SettingsButton" to="." method="_on_Button_mouse_entered"]
 [connection signal="mouse_entered" from="Control/ShopButton" to="." method="_on_Button_mouse_entered"]
