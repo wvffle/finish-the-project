@@ -1,14 +1,14 @@
 extends Node
 
-const STAGE_TIME = 30
+const DEFAULT_STAGE_TIME = 30
 
-signal stage_lost(remaining_time)
-signal stage_won(remaining_time)
+signal stage_lost(stage_time)
+signal stage_won(stage_time)
 signal game_lost(score)
 
 
 var lives = 3
-var remaining_time = 0
+var stage_time = 0
 var level = 0
 
 var _stage = 0
@@ -30,8 +30,8 @@ func start_stage(stage):
 	print('lives: ' + str(lives))
 	print('level: ' + str(level))
 	print('stage: ' + str(_stage + 1))
+	stage_time = DEFAULT_STAGE_TIME / level
 	get_tree().change_scene("res://src/scenes/stages/" + stage + ".tscn")
-	remaining_time = STAGE_TIME / level
 	
 func stage_won():
 	emit_signal('stage_won', 0)
