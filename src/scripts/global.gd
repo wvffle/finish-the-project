@@ -27,25 +27,26 @@ func start_game():
 	start_stage(_stage_order[0])
 	
 func start_stage(stage):
+	stage_time = DEFAULT_STAGE_TIME - (DEFAULT_STAGE_TIME * pow(level, 2) / 100)
 	print('lives: ' + str(lives))
 	print('level: ' + str(level))
 	print('stage: ' + str(_stage + 1))
-	stage_time = DEFAULT_STAGE_TIME / level
+	print('time: ' + str(stage_time))
 	get_tree().change_scene("res://src/scenes/stages/" + stage + ".tscn")
 	
-func stage_won():
-	emit_signal('stage_won', 0)
+func stage_won(remaining_time):
+	emit_signal('stage_won', remaining_time)
 	print('stage won')
 	_next_stage()
 	
-func stage_lost():
+func stage_lost(remaining_time):
 	lives -= 1
 	
 	if lives == 0:
 		return game_lost()
 		
 	# TODO: Display remaining lives screen for 3 seconds
-	emit_signal('stage_lost', 0)
+	emit_signal('stage_lost', remaining_time)
 	print('stage lost')
 	_next_stage()
 	

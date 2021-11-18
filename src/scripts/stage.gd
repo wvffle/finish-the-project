@@ -3,8 +3,13 @@ extends Node2D
 var time = 0
 func _process(delta):
 	time += delta
-	if time > 3:
-		if randi() % 7 == 0:
-			global.stage_lost()
-		else:
-			global.stage_won()
+	if time > global.stage_time / 10:
+		stage_won()
+	if time > global.stage_time:
+		stage_lost()
+		
+func stage_won():
+	global.stage_won(max(0, global.stage_time - time))
+
+func stage_lost():
+	global.stage_lost(max(0, global.stage_time - time))
