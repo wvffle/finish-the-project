@@ -14,6 +14,10 @@ config/name="FTP://"
 run/main_scene="res://src/scenes/Game.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+global="*res://src/scripts/global.gd"
+
 [input]
 
 click={
