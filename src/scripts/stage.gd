@@ -3,8 +3,6 @@ extends Node2D
 var time = 0
 func _process(delta):
 	time += delta
-	if time > global.stage_time / 10:
-		stage_won()
 	if time > global.stage_time:
 		stage_lost()
 		
