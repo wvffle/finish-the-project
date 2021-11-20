@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/fonts/Boxy-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/scripts/ui/buttons/quitGameButton.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/music/theme_185bpm.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/music/button_sound.wav" type="AudioStream" id=5]
 [ext_resource path="res://src/scripts/ui/buttons/continueButton.gd" type="Script" id=6]
+[ext_resource path="res://src/scripts/ui/buttons/shopButton.gd" type="Script" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -70,6 +71,7 @@ margin_bottom = 368.0
 rect_pivot_offset = Vector2( 158, 43 )
 custom_fonts/font = SubResource( 1 )
 text = "Shop"
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -98,5 +100,6 @@ stream = ExtResource( 5 )
 [connection signal="mouse_entered" from="Control/continueButton" to="." method="_on_Button_mouse_entered"]
 [connection signal="mouse_entered" from="Control/SettingsButton" to="." method="_on_Button_mouse_entered"]
 [connection signal="mouse_entered" from="Control/ShopButton" to="." method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="Control/ShopButton" to="Control/ShopButton" method="_on_ShopButton_pressed"]
 [connection signal="button_up" from="Control/quitGameButton" to="Control/quitGameButton" method="_on_Button2_button_up"]
 [connection signal="mouse_entered" from="Control/quitGameButton" to="." method="_on_Button_mouse_entered"]
