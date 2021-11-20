@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/fonts/Boxy-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://src/scripts/ui/buttons/backMenuButton.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -10,13 +11,23 @@ font_data = ExtResource( 1 )
 
 [node name="Node2D" type="Node2D"]
 
-[node name="backMenuButton" type="Button" parent="."]
-margin_left = 596.0
-margin_top = 508.0
-margin_right = 1018.0
-margin_bottom = 592.0
-custom_fonts/font = SubResource( 1 )
-text = "Back"
+[node name="Control" type="Control" parent="."]
+margin_right = 1028.0
+margin_bottom = 600.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="backMenuButton" type="Button" parent="Control"]
+margin_left = 607.0
+margin_top = 515.0
+margin_right = 1029.0
+margin_bottom = 599.0
+custom_fonts/font = SubResource( 1 )
+text = "Back"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Control/backMenuButton" to="Control/backMenuButton" method="_on_backMenuButton_pressed"]
