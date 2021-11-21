@@ -61,7 +61,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="mouse_entered" from="Control/backButton" to="Control/backButton" method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Control/backButton" to="Control/backButton" method="_on_backButton_pressed"]
+[connection signal="mouse_entered" from="Control/coffeeButton" to="Control/backButton" method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Control/coffeeButton" to="Control/backButton" method="_on_coffeeButton_pressed"]
 [connection signal="pressed" from="Control/coffeeButton" to="Control/coffeeButton" method="_on_coffeeButton_pressed"]
+[connection signal="mouse_entered" from="Control/pizzaButton" to="Control/backButton" method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Control/pizzaButton" to="Control/pizzaButton" method="_on_pizzaButton_pressed"]

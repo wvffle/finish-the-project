@@ -66,10 +66,9 @@ func game_lost():
 	# TODO: Remove
 	get_tree().change_scene("res://src/scenes/Game.tscn")
 
-func playMusic():
-	if $AudioStreamPlayer.playing == false:
-		$AudioStreamPlayer.play()
+
 		
 func _process(delta):
 	global.get_node("/root/BackgroundMusic").playMusic()	
+
 
