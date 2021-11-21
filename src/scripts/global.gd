@@ -69,3 +69,7 @@ func game_lost():
 func play():
 	if $AudioStreamPlayer.playing == false:
 		$AudioStreamPlayer.play()
+		
+func _process(delta):
+	global.get_node("/root/BackgroundMusic").play()	
+
