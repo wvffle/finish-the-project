@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 global="*res://src/scripts/global.gd"
+BackgroundMusic="*res://src/scenes/BackgroundSounds.tscn"
 
 [input]
 
