@@ -6,3 +6,4 @@ func _on_Button_mouse_entered():
 
 func _on_newGameButton_pressed():
 	global.start_game()
+

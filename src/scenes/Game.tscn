@@ -109,6 +109,7 @@ __meta__ = {
 [connection signal="pressed" from="Control/SettingsButton" to="Control/SettingsButton" method="_on_SettingsButton_pressed"]
 [connection signal="mouse_entered" from="Control/ShopButton" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Control/ShopButton" to="Control/ShopButton" method="_on_ShopButton_pressed"]
+[connection signal="mouse_entered" from="Control/rankingButton" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Control/rankingButton" to="Control/rankingButton" method="_on_rankingButton_pressed"]
 [connection signal="button_up" from="Control/quitGameButton" to="Control/quitGameButton" method="_on_Button2_button_up"]
 [connection signal="mouse_entered" from="Control/quitGameButton" to="." method="_on_Button_mouse_entered"]
