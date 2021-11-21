@@ -11,4 +11,3 @@ stream = ExtResource( 1 )
 autoplay = true
 
 [node name="ButtonSound" type="AudioStreamPlayer" parent="."]
-script = ExtResource( 2 )
