@@ -2,7 +2,6 @@ extends Node2D
 
 var time = 0
 func _process(delta):
-	global.get_node("/root/BackgroundMusic").play()	
 	time += delta
 	if time > global.stage_time:
 		stage_lost()
