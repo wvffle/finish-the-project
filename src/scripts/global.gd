@@ -18,6 +18,7 @@ var _stage_order = [
 	'StageDeveloper'
 ]
 
+
 func start_game():
 	lives = 3
 	level = 1
@@ -65,10 +66,4 @@ func game_lost():
 	
 	# TODO: Remove
 	get_tree().change_scene("res://src/scenes/Game.tscn")
-
-
-		
-func _process(delta):
-	global.get_node("/root/BackgroundMusic").playMusic()	
-
 

@@ -6,4 +6,4 @@ func _on_backButton_pressed():
 
 
 func _on_Button_mouse_entered():
-	global.get_node("/root/BackgroundMusic").playButtonSound()
+	sounds.button.play()
