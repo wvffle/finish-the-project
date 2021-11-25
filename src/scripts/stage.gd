@@ -2,7 +2,9 @@ extends Node2D
 
 var time = 0
 func _process(delta):
-	time += delta
+	if !global.paused:
+		time += delta
+	
 	if time > global.stage_time:
 		stage_lost()
 		

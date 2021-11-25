@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://ui.tres" type="Theme" id=1]
+[ext_resource path="res://src/scripts/ui/buttons/backMenuButton.gd" type="Script" id=2]
+[ext_resource path="res://src/scripts/pause.gd" type="Script" id=3]
+[ext_resource path="res://src/scripts/ui/buttons/quitGameButton.gd" type="Script" id=4]
+
+[node name="Node2D" type="Node2D"]
+z_index = 1000
+script = ExtResource( 3 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 0.133333, 0.160784, 0.235294, 1 )
+polygon = PoolVector2Array( -53.5738, -42.2843, 1157.08, -47.7707, 1072.96, 623.395, -75.5193, 674.601 )
+
+[node name="Control" type="Control" parent="."]
+margin_left = 5.48645
+margin_top = -12.8015
+margin_right = 1095.49
+margin_bottom = 618.198
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="continueGameButton" type="Button" parent="Control"]
+margin_left = 310.579
+margin_top = 269.224
+margin_right = 732.579
+margin_bottom = 353.224
+theme = ExtResource( 1 )
+text = "Continue game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="backMenuButton" type="Button" parent="Control"]
+margin_left = 308.907
+margin_top = 370.526
+margin_right = 730.907
+margin_bottom = 454.526
+theme = ExtResource( 1 )
+text = "Back to menu"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quitGameButton" type="Button" parent="Control"]
+margin_left = 310.709
+margin_top = 471.424
+margin_right = 732.709
+margin_bottom = 555.424
+theme = ExtResource( 1 )
+text = "Quit Game"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="mouse_entered" from="Control/continueGameButton" to="Control/continueGameButton" method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="Control/continueGameButton" to="." method="_on_continueGameButton_pressed"]
+[connection signal="mouse_entered" from="Control/backMenuButton" to="Control/backMenuButton" method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="Control/backMenuButton" to="Control/backMenuButton" method="_on_backMenuButton_pressed"]
+[connection signal="button_up" from="Control/quitGameButton" to="Control/quitGameButton" method="_on_Button2_button_up"]

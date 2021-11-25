@@ -10,6 +10,7 @@ signal game_lost(score)
 var lives = 3
 var stage_time = 0
 var level = 0
+var paused = false
 
 var _stage = 0
 var _stage_order = [
