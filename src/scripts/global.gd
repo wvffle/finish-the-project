@@ -1,6 +1,7 @@
 extends Node
 
 const DEFAULT_STAGE_TIME = 30
+const SAVE_FILE = "save.json"
 
 signal stage_lost(stage_time)
 signal stage_won(stage_time)
@@ -67,4 +68,27 @@ func game_lost():
 	
 	# TODO: Remove
 	get_tree().change_scene("res://src/scenes/Game.tscn")
-
+	
+	
+func save():
+	var save_dict = {
+		"filename" : get_filename(),
+		"level" : level,
+		"stage": _stage,
+		"time": stage_time,
+		"lives": lives
+		}
+	save_file("save.json", save_dict)
+	return save_dict
+		
+	
+func save_file(filename, data):
+	var file = File.new()
+	file.open(filename,File.WRITE)
+	file.store_line(to_json(data))
+	file.close()
+	
+func file_exists(filename):
+	
+	var file = File.new()
+	return file.file_exists(filename)

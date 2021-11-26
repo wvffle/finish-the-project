@@ -1,6 +1,7 @@
 extends Button
 
-var save_exists = false
+var save_exists 
 
 func _ready():
-	disabled = not save_exists
+	if save_exists:
+		save_exists = global.file_exists(global.SAVE_FILE)
