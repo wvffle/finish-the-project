@@ -24,13 +24,14 @@ var _stage_order = [
 func start_game():
 	lives = 3
 	level = 1
+	_stage = 0
 	print('new game')
 	# TODO: Display remaining lives screen for 3 seconds
-	_stage = 0
-	start_stage(_stage_order[0])
+	start_stage(_stage_order[_stage])
 	
 func start_stage(stage):
 	stage_time = DEFAULT_STAGE_TIME - (DEFAULT_STAGE_TIME * pow(level, 2) / 100)
+	save()
 	print('lives: ' + str(lives))
 	print('level: ' + str(level))
 	print('stage: ' + str(_stage + 1))
@@ -72,15 +73,12 @@ func game_lost():
 	
 func save():
 	var save_dict = {
-		"filename" : get_filename(),
 		"level" : level,
 		"stage": _stage,
-		"time": stage_time,
 		"lives": lives
-		}
-	save_file("save.json", save_dict)
-	return save_dict
-		
+	}
+	
+	save_file(SAVE_FILE, save_dict)
 	
 func save_file(filename, data):
 	var file = File.new()
@@ -89,6 +87,5 @@ func save_file(filename, data):
 	file.close()
 	
 func file_exists(filename):
-	
 	var file = File.new()
 	return file.file_exists(filename)
