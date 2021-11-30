@@ -2,6 +2,11 @@ extends Node
 
 const DEFAULT_STAGE_TIME = 30
 const SAVE_FILE = "save.json"
+const _STAGE_ORDER = [
+	'StageProjectManager',
+	'StageTester',
+	'StageDeveloper'
+]
 
 signal stage_lost(remaining_time, score)
 signal stage_won(remaining_time, score)
@@ -15,11 +20,7 @@ var score = 0
 var paused = false
 
 var _stage = 0
-var _stage_order = [
-	'StageProjectManager',
-	'StageTester',
-	'StageDeveloper'
-]
+
 
 
 func start_game():
@@ -29,7 +30,7 @@ func start_game():
 	_stage = 0
 	print('new game')
 	# TODO: Display remaining lives screen for 3 seconds
-	start_stage(_stage_order[_stage])
+	start_stage(_STAGE_ORDER[_stage])
 	
 func start_stage(stage):
 	stage_time = DEFAULT_STAGE_TIME - (DEFAULT_STAGE_TIME * pow(level, 2) / 100)
@@ -64,7 +65,7 @@ func _next_stage():
 	if _stage >= 3:
 		level += 1
 		_stage = 0
-	start_stage(_stage_order[_stage])
+	start_stage(_STAGE_ORDER[_stage])
 		
 func game_lost():
 	# TODO: Display score screen
