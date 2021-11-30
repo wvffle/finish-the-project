@@ -3,14 +3,15 @@ extends Node
 const DEFAULT_STAGE_TIME = 30
 const SAVE_FILE = "save.json"
 
-signal stage_lost(stage_time)
-signal stage_won(stage_time)
+signal stage_lost(remaining_time, score)
+signal stage_won(remaining_time, score)
 signal game_lost(score)
 
 
 var lives = 3
 var stage_time = 0
 var level = 0
+var score = 0
 var paused = false
 
 var _stage = 0
@@ -24,6 +25,7 @@ var _stage_order = [
 func start_game():
 	lives = 3
 	level = 1
+	score = 0
 	_stage = 0
 	print('new game')
 	# TODO: Display remaining lives screen for 3 seconds
@@ -36,10 +38,13 @@ func start_stage(stage):
 	print('level: ' + str(level))
 	print('stage: ' + str(_stage + 1))
 	print('time: ' + str(stage_time))
+	print('score: ' + str(score))
 	get_tree().change_scene("res://src/scenes/stages/" + stage + ".tscn")
 	
 func stage_won(remaining_time):
-	emit_signal('stage_won', remaining_time)
+	var delta = floor(100 + 100 * remaining_time / max(stage_time, 0.001))
+	score += delta
+	emit_signal('stage_won', remaining_time, score)
 	print('stage won')
 	_next_stage()
 	
@@ -50,7 +55,7 @@ func stage_lost(remaining_time):
 		return game_lost()
 		
 	# TODO: Display remaining lives screen for 3 seconds
-	emit_signal('stage_lost', remaining_time)
+	emit_signal('stage_lost', remaining_time, 0)
 	print('stage lost')
 	_next_stage()
 	
@@ -64,8 +69,9 @@ func _next_stage():
 func game_lost():
 	# TODO: Display score screen
 	# TODO: Save score
-	emit_signal('game_lost', 0)
+	emit_signal('game_lost', score)
 	print('game lost')
+	print('score: ' + str(score))
 	
 	# TODO: Remove
 	get_tree().change_scene("res://src/scenes/Game.tscn")
@@ -75,7 +81,8 @@ func save():
 	var save_dict = {
 		"level" : level,
 		"stage": _stage,
-		"lives": lives
+		"lives": lives,
+		"score": score
 	}
 	
 	save_file(SAVE_FILE, save_dict)
