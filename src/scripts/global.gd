@@ -7,9 +7,16 @@ const _STAGE_ORDER = [
 	'StageTester',
 	'StageDeveloper'
 ]
-
+const DIFFICULTY_MODIFIERS = [
+	1.2,
+	1,
+	0.8
+]
 signal stage_lost(remaining_time, score)
 signal stage_won(remaining_time, score)
+
+signal stage_lost(stage_time)
+signal stage_won(stage_time)
 signal game_lost(score)
 
 
@@ -18,6 +25,9 @@ var stage_time = 0
 var level = 0
 var score = 0
 var paused = false
+
+var difficulty = 1
+
 
 var _stage = 0
 
@@ -33,10 +43,11 @@ func start_game():
 	start_stage(_STAGE_ORDER[_stage])
 	
 func start_stage(stage):
-	stage_time = DEFAULT_STAGE_TIME - (DEFAULT_STAGE_TIME * pow(level, 2) / 100)
+	stage_time = (DEFAULT_STAGE_TIME - (DEFAULT_STAGE_TIME * pow(level, 2) / 100)) * DIFFICULTY_MODIFIERS[difficulty]
 	save()
 	print('lives: ' + str(lives))
 	print('level: ' + str(level))
+	print('difficulty mode: ' + str(difficulty))
 	print('stage: ' + str(_stage + 1))
 	print('time: ' + str(stage_time))
 	print('score: ' + str(score))
@@ -73,27 +84,29 @@ func game_lost():
 	emit_signal('game_lost', score)
 	print('game lost')
 	print('score: ' + str(score))
-	
+
 	# TODO: Remove
 	get_tree().change_scene("res://src/scenes/Game.tscn")
-	
-	
+
+
 func save():
 	var save_dict = {
 		"level" : level,
 		"stage": _stage,
 		"lives": lives,
-		"score": score
+		"score": score,
+		"lives": lives,
+		"difficulty": difficulty
 	}
-	
+
 	save_file(SAVE_FILE, save_dict)
-	
+
 func save_file(filename, data):
 	var file = File.new()
 	file.open(filename,File.WRITE)
 	file.store_line(to_json(data))
 	file.close()
-	
+
 func file_exists(filename):
 	var file = File.new()
 	return file.file_exists(filename)

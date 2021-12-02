@@ -1,15 +1,30 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://ui.tres" type="Theme" id=1]
 [ext_resource path="res://src/scripts/ui/buttons/backMenuButton.gd" type="Script" id=2]
 [ext_resource path="res://src/scripts/ui/sliders/backgroundMusicSlider.gd" type="Script" id=3]
 [ext_resource path="res://src/scripts/ui/sliders/soundEffectsSlider.gd" type="Script" id=4]
+[ext_resource path="res://assets/fonts/Boxy-Bold.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://src/scripts/ui/buttons/easyButton.gd" type="Script" id=6]
+[ext_resource path="res://src/scripts/ui/buttons/mediumButton.gd" type="Script" id=7]
+[ext_resource path="res://src/scripts/ui/buttons/hardButton.gd" type="Script" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 5 )
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Control" type="Control" parent="."]
+margin_top = 1.68182
 margin_right = 1028.0
-margin_bottom = 600.0
+margin_bottom = 601.682
+rect_pivot_offset = Vector2( 451.731, 265.347 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -49,13 +64,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="backgroundMusicText" type="Label" parent="Control"]
-margin_left = 653.0
-margin_top = 17.0
-margin_right = 773.0
-margin_bottom = 31.0
-text = "Background Music:"
-
 [node name="backgroundMusicSlider" type="HSlider" parent="Control"]
 margin_left = 790.0
 margin_top = 10.0
@@ -69,7 +77,59 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="easyButton" type="Button" parent="Control"]
+margin_left = 116.044
+margin_top = 124.453
+margin_right = 538.044
+margin_bottom = 208.453
+custom_fonts/font = SubResource( 1 )
+text = "Easy"
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="backgroundMusicText" type="Label" parent="Control"]
+margin_left = 653.0
+margin_top = 17.0
+margin_right = 773.0
+margin_bottom = 31.0
+text = "Background Music:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mediumButton" type="Button" parent="Control"]
+margin_left = 116.044
+margin_top = 225.36
+margin_right = 538.044
+margin_bottom = 309.36
+custom_fonts/font = SubResource( 2 )
+text = "Medium"
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hardButton" type="Button" parent="Control"]
+margin_left = 114.362
+margin_top = 326.268
+margin_right = 536.362
+margin_bottom = 410.268
+custom_fonts/font = SubResource( 3 )
+text = "Hard"
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="mouse_entered" from="Control/backMenuButton" to="Control/backMenuButton" method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Control/backMenuButton" to="Control/backMenuButton" method="_on_backMenuButton_pressed"]
 [connection signal="value_changed" from="Control/soundEffectsSlider" to="Control/soundEffectsSlider" method="_on_soundEffectsSlider_value_changed"]
 [connection signal="value_changed" from="Control/backgroundMusicSlider" to="Control/backgroundMusicSlider" method="_on_backgroundMusicSlider_value_changed"]
+[connection signal="mouse_entered" from="Control/easyButton" to="Control/easyButton" method="_on_easyButton_mouse_entered"]
+[connection signal="pressed" from="Control/easyButton" to="Control/easyButton" method="_on_easyButton_pressed"]
+[connection signal="mouse_entered" from="Control/mediumButton" to="Control/mediumButton" method="_on_mediumButton_mouse_entered"]
+[connection signal="pressed" from="Control/mediumButton" to="Control/mediumButton" method="_on_mediumButton_pressed"]
+[connection signal="mouse_entered" from="Control/hardButton" to="Control/hardButton" method="_on_hardButton_mouse_entered"]
+[connection signal="pressed" from="Control/hardButton" to="Control/hardButton" method="_on_hardButton_pressed"]
