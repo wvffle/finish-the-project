@@ -15,8 +15,6 @@ const DIFFICULTY_MODIFIERS = [
 signal stage_lost(remaining_time, score)
 signal stage_won(remaining_time, score)
 
-signal stage_lost(stage_time)
-signal stage_won(stage_time)
 signal game_lost(score)
 
 
