@@ -110,6 +110,7 @@ position = Vector2( 145.051, 276.627 )
 [connection signal="mouse_entered" from="Control/newGameButton" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Control/newGameButton" to="." method="_on_newGameButton_pressed"]
 [connection signal="mouse_entered" from="Control/continueButton" to="." method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="Control/continueButton" to="." method="_on_continueButton_pressed"]
 [connection signal="mouse_entered" from="Control/SettingsButton" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Control/SettingsButton" to="Control/SettingsButton" method="_on_SettingsButton_pressed"]
 [connection signal="mouse_entered" from="Control/ShopButton" to="." method="_on_Button_mouse_entered"]

@@ -26,10 +26,7 @@ var paused = false
 
 var difficulty = 1
 
-
 var _stage = 0
-
-
 
 func start_game():
 	lives = 3
@@ -93,7 +90,6 @@ func save():
 		"stage": _stage,
 		"lives": lives,
 		"score": score,
-		"lives": lives,
 		"difficulty": difficulty
 	}
 
@@ -108,3 +104,24 @@ func save_file(filename, data):
 func file_exists(filename):
 	var file = File.new()
 	return file.file_exists(filename)
+	
+func load_file(filename):
+	var file = File.new()
+	file.open(filename, File.READ)
+	var data = parse_json(file.get_line())
+	file.close()
+	return data
+	
+func load_game():
+	if not file_exists(SAVE_FILE):
+		return
+		
+	var save = load_file(SAVE_FILE)
+	
+	level = save.level
+	lives = save.lives
+	score = save.score
+	_stage = save.stage
+	difficulty = save.difficulty
+	start_stage(_STAGE_ORDER[_stage])
+	
