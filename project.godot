@@ -20,6 +20,10 @@ global="*res://src/scripts/global.gd"
 sounds="*res://src/scripts/sounds.gd"
 BackgroundSounds="*res://src/scenes/BackgroundSounds.tscn"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/droppable/plugin.cfg" )
+
 [input]
 
 click={
