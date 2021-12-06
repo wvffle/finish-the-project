@@ -1,5 +1,6 @@
 extends HSlider
 
+
 func _ready():
 	value = sounds.button.get_volume_db()
 

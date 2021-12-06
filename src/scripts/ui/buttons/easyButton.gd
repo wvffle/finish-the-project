@@ -6,4 +6,4 @@ func _on_easyButton_pressed():
 
 
 func _on_easyButton_mouse_entered():
-	sounds.button.play()
+	sounds.button_hover()

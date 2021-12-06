@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://ui.tres" type="Theme" id=1]
 [ext_resource path="res://src/scripts/ui/buttons/backMenuButton.gd" type="Script" id=2]
 [ext_resource path="res://src/scripts/pause.gd" type="Script" id=3]
 [ext_resource path="res://src/scripts/ui/buttons/quitGameButton.gd" type="Script" id=4]
+[ext_resource path="res://src/scripts/ui/buttons/continueFromPauseButton.gd" type="Script" id=5]
 
 [node name="Node2D" type="Node2D"]
 z_index = 1000
@@ -29,6 +30,7 @@ margin_right = 732.579
 margin_bottom = 353.224
 theme = ExtResource( 1 )
 text = "Continue game"
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -62,3 +64,4 @@ __meta__ = {
 [connection signal="mouse_entered" from="Control/backMenuButton" to="Control/backMenuButton" method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Control/backMenuButton" to="Control/backMenuButton" method="_on_backMenuButton_pressed"]
 [connection signal="button_up" from="Control/quitGameButton" to="Control/quitGameButton" method="_on_Button2_button_up"]
+[connection signal="mouse_entered" from="Control/quitGameButton" to="Control/backMenuButton" method="_on_Button_mouse_entered"]

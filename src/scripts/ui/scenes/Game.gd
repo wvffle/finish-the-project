@@ -1,7 +1,8 @@
 extends Node2D
 
+
 func _on_Button_mouse_entered():
-	sounds.button.play()
+	sounds.button_hover()
 
 
 func _on_newGameButton_pressed():

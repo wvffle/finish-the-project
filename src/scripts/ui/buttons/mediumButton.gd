@@ -6,4 +6,4 @@ func _on_mediumButton_pressed():
 
 
 func _on_mediumButton_mouse_entered():
-		sounds.button.play()
+	sounds.button_hover()
