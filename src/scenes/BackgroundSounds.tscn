@@ -7,7 +7,6 @@
 
 [node name="MainTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
-autoplay = true
 
 [node name="ButtonSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
