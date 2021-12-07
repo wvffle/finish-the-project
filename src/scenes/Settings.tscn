@@ -160,6 +160,7 @@ __meta__ = {
 
 [connection signal="mouse_entered" from="Control/backMenuButton" to="Control/backMenuButton" method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Control/backMenuButton" to="Control/backMenuButton" method="_on_backMenuButton_pressed"]
+[connection signal="pressed" from="Control/backMenuButton" to="Control/backMenuButton" method="_on_backMenuButton_pressed_save_config"]
 [connection signal="mouse_entered" from="Control/defaultSettingsButton" to="Control/defaultSettingsButton" method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Control/defaultSettingsButton" to="Control/defaultSettingsButton" method="_on_defaultSettingsButton_pressed"]
 [connection signal="value_changed" from="Control/soundEffectsSlider" to="Control/soundEffectsSlider" method="_on_soundEffectsSlider_value_changed"]
