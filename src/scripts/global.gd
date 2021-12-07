@@ -2,6 +2,7 @@ extends Node
 
 const DEFAULT_STAGE_TIME = 30
 const SAVE_FILE = "save.json"
+const CONFIG_FILE = "config.json"
 const _STAGE_ORDER = [
 	'StageProjectManager',
 	'StageTester',
@@ -91,12 +92,16 @@ func save():
 		"lives": lives,
 		"score": score,
 		"difficulty": difficulty,
-		"mainThemeVolume": sounds.mainThemeVolume,
-		"buttonVolume": sounds.buttonVolume,
-		"soundsCanPlay": sounds.soundsCanPlay
+	}
+	
+	var config_dict = {
+		"mainThemeVolume": sounds.mainTheme.get_volume_db(),
+		"buttonVolume": sounds.button.get_volume_db(),
+		"soundsCanPlay": sounds.mainTheme.is_playing()
 	}
 
 	save_file(SAVE_FILE, save_dict)
+	save_file(CONFIG_FILE, config_dict)
 
 func save_file(filename, data):
 	var file = File.new()
