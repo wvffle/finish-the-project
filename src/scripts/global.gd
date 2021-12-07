@@ -94,13 +94,15 @@ func save():
 		"difficulty": difficulty,
 	}
 	
+	save_file(SAVE_FILE, save_dict)
+
+func save_config():
 	var config_dict = {
 		"mainThemeVolume": sounds.mainTheme.get_volume_db(),
 		"buttonVolume": sounds.button.get_volume_db(),
 		"soundsCanPlay": sounds.mainTheme.is_playing()
 	}
-
-	save_file(SAVE_FILE, save_dict)
+	
 	save_file(CONFIG_FILE, config_dict)
 
 func save_file(filename, data):
@@ -133,3 +135,13 @@ func load_game():
 	difficulty = save.difficulty
 	start_stage(_STAGE_ORDER[_stage])
 	
+func load_config():
+	if not file_exists(CONFIG_FILE):
+		return
+		
+	var config = load_file(CONFIG_FILE)
+	
+	sounds.mainTheme.set_volume_db(config.mainThemeVolume)
+	sounds.button.set_volume_db(config.buttonVolume)
+	if config.soundsCanPlay:
+		sounds.mainTheme.play()
