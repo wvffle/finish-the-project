@@ -14,3 +14,5 @@ func _on_soundToggleButton_toggled(is_enabled):
 		sounds.button.stop()
 		sounds.mainTheme.stop()
 		sounds.soundsCanPlay = false
+		
+	global.save_config()

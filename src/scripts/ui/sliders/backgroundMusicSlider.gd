@@ -6,6 +6,7 @@ func _ready():
 
 func _on_backgroundMusicSlider_value_changed(value):
 	sounds.mainTheme.set_volume_db(value)
+	global.save_config()
 
 func setDefaultValue():
 	value = sounds.defaultMusicVolume
