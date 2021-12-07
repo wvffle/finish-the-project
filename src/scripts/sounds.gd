@@ -1,6 +1,8 @@
 extends Node2D
 
 
+var defaultMusicVolume = 0
+var defaultButtonSoundVolume = 0
 var mainTheme
 var button
 var soundsCanPlay = true

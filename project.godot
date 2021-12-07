@@ -22,7 +22,7 @@ BackgroundSounds="*res://src/scenes/BackgroundSounds.tscn"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/droppable/plugin.cfg" )
+enabled=PoolStringArray("res://addons/droppable/plugin.cfg")
 
 [input]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://ui.tres" type="Theme" id=1]
 [ext_resource path="res://src/scripts/ui/buttons/backMenuButton.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://src/scripts/ui/buttons/mediumButton.gd" type="Script" id=7]
 [ext_resource path="res://src/scripts/ui/buttons/hardButton.gd" type="Script" id=8]
 [ext_resource path="res://src/scripts/ui/buttons/soundToggleButton.gd" type="Script" id=9]
+[ext_resource path="res://src/scripts/ui/buttons/defaultSettingsButton.gd" type="Script" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 5 )
@@ -38,6 +39,18 @@ margin_bottom = 599.0
 theme = ExtResource( 1 )
 text = "Back"
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="defaultSettingsButton" type="Button" parent="Control"]
+margin_left = 113.0
+margin_top = 427.318
+margin_right = 535.0
+margin_bottom = 511.318
+theme = ExtResource( 1 )
+text = "Default"
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -147,6 +160,8 @@ __meta__ = {
 
 [connection signal="mouse_entered" from="Control/backMenuButton" to="Control/backMenuButton" method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Control/backMenuButton" to="Control/backMenuButton" method="_on_backMenuButton_pressed"]
+[connection signal="mouse_entered" from="Control/defaultSettingsButton" to="Control/defaultSettingsButton" method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="Control/defaultSettingsButton" to="Control/defaultSettingsButton" method="_on_defaultSettingsButton_pressed"]
 [connection signal="value_changed" from="Control/soundEffectsSlider" to="Control/soundEffectsSlider" method="_on_soundEffectsSlider_value_changed"]
 [connection signal="value_changed" from="Control/backgroundMusicSlider" to="Control/backgroundMusicSlider" method="_on_backgroundMusicSlider_value_changed"]
 [connection signal="toggled" from="Control/soundToggleButton" to="Control/soundToggleButton" method="_on_soundToggleButton_toggled"]

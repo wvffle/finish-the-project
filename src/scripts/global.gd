@@ -86,7 +86,7 @@ func game_lost():
 
 func save():
 	var save_dict = {
-		"level" : level,
+		"level": level,
 		"stage": _stage,
 		"lives": lives,
 		"score": score,
