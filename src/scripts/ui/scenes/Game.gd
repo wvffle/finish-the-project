@@ -1,6 +1,9 @@
 extends Node2D
 
 
+func _ready():
+	global.load_config()
+	
 func _on_Button_mouse_entered():
 	sounds.button_hover()
 
