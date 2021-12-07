@@ -11,4 +11,4 @@ func _on_defaultSettingsButton_pressed():
 	global.difficulty = 1
 	
 func _on_Button_mouse_entered():
-	sounds.button.play()
+	sounds.button_hover()
