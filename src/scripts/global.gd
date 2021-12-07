@@ -90,7 +90,10 @@ func save():
 		"stage": _stage,
 		"lives": lives,
 		"score": score,
-		"difficulty": difficulty
+		"difficulty": difficulty,
+		"mainThemeVolume": sounds.mainThemeVolume,
+		"buttonVolume": sounds.buttonVolume,
+		"soundsCanPlay": sounds.soundsCanPlay
 	}
 
 	save_file(SAVE_FILE, save_dict)
