@@ -93,7 +93,6 @@ func save():
 		"stage": _stage,
 		"lives": lives,
 		"score": score,
-		"difficulty": difficulty,
 	}
 	
 	save_file(SAVE_FILE, save_dict)
@@ -102,7 +101,8 @@ func save_config():
 	var config_dict = {
 		"mainThemeVolume": sounds.mainTheme.get_volume_db(),
 		"buttonVolume": sounds.button.get_volume_db(),
-		"soundsCanPlay": sounds.mainTheme.is_playing()
+		"soundsCanPlay": sounds.mainTheme.is_playing(),
+		"difficulty": difficulty,
 	}
 	
 	save_file(CONFIG_FILE, config_dict)
@@ -134,7 +134,6 @@ func load_game():
 	lives = save.lives
 	score = save.score
 	_stage = save.stage
-	difficulty = save.difficulty
 	start_stage(_STAGE_ORDER[_stage])
 	
 func load_config():
@@ -143,6 +142,7 @@ func load_config():
 		
 	var config = load_file(CONFIG_FILE)
 	
+	difficulty = config.difficulty
 	sounds.mainTheme.set_volume_db(config.mainThemeVolume)
 	sounds.button.set_volume_db(config.buttonVolume)
 	if config.soundsCanPlay:
