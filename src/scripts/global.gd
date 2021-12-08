@@ -144,4 +144,5 @@ func load_config():
 	sounds.mainTheme.set_volume_db(config.mainThemeVolume)
 	sounds.button.set_volume_db(config.buttonVolume)
 	if config.soundsCanPlay:
+		sounds.soundsCanPlay = config.soundsCanPlay
 		sounds.mainTheme.play()

@@ -5,7 +5,7 @@ var defaultMusicVolume = 0
 var defaultButtonSoundVolume = 0
 var mainTheme
 var button
-var soundsCanPlay = true
+var soundsCanPlay
 
 func _ready():
 	var node = global.get_node("/root/BackgroundSounds")
