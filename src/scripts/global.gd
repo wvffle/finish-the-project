@@ -29,6 +29,8 @@ var difficulty = 1
 
 var _stage = 0
 
+var first_open = true
+
 func start_game():
 	lives = 3
 	level = 1
@@ -145,4 +147,6 @@ func load_config():
 	sounds.button.set_volume_db(config.buttonVolume)
 	if config.soundsCanPlay:
 		sounds.soundsCanPlay = config.soundsCanPlay
-		sounds.mainTheme.play()
+		if first_open:
+			sounds.mainTheme.play()
+			first_open = false
