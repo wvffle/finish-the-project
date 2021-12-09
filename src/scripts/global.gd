@@ -149,4 +149,4 @@ func load_config():
 		sounds.soundsCanPlay = config.soundsCanPlay
 		if _first_start:
 			sounds.mainTheme.play()
-			_first_start = false
+	_first_start = false
