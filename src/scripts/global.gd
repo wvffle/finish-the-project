@@ -93,6 +93,7 @@ func save():
 		"stage": _stage,
 		"lives": lives,
 		"score": score,
+		"difficulty": difficulty,
 	}
 	
 	save_file(SAVE_FILE, save_dict)
@@ -134,6 +135,7 @@ func load_game():
 	lives = save.lives
 	score = save.score
 	_stage = save.stage
+	difficulty = save.difficulty
 	start_stage(_STAGE_ORDER[_stage])
 	
 func load_config():
