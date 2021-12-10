@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://devtools.wi.pb.edu.pl:7999/gpz/finish-the-project/compare/v1.1.0...v1.2.0) (2021-12-10)
+
+
+### Features
+
+* add global.paused = false in quit and back button ([947b79f](https://devtools.wi.pb.edu.pl:7999/gpz/finish-the-project/commit/947b79f5bb7b4343e2840d2742a43b6fffa18995))
+* add visual state of button based on global difficulty ([b2a41f7](https://devtools.wi.pb.edu.pl:7999/gpz/finish-the-project/commit/b2a41f7901b4865c5e3ab02ce640a50fc5b780a4))
+
+
+### Bug Fixes
+
+* button sounds when soundsCanPlay in config file is false ([8e1daf5](https://devtools.wi.pb.edu.pl:7999/gpz/finish-the-project/commit/8e1daf59fe49cc76c919857d932029278923f851))
+* change name 'first_open' to '_first_start' ([a540f88](https://devtools.wi.pb.edu.pl:7999/gpz/finish-the-project/commit/a540f889316e2a41b56a9826a7e9ed73540ecf3d))
+* playing music when enter menu ([cc6673b](https://devtools.wi.pb.edu.pl:7999/gpz/finish-the-project/commit/cc6673b0e24fa9a3bb6d3e246a2186e7852d7fed))
+* relocate _first_start = false to calling regardless of other parameters ([f7348d8](https://devtools.wi.pb.edu.pl:7999/gpz/finish-the-project/commit/f7348d83084ee7ccaa8e786f08f0a702970e206a))
+* set pressed to false when changing the level ([86deb68](https://devtools.wi.pb.edu.pl:7999/gpz/finish-the-project/commit/86deb6856aee4691b9c61e5009f5d10d48571c5a))
+* switch two lines in backMenuButton and delete changing paused status in quitGameButton ([1675f5e](https://devtools.wi.pb.edu.pl:7999/gpz/finish-the-project/commit/1675f5ee5f657a57f1053dcbae6f80a0d84b0b06))
+
 ## 1.1.0 (2021-12-09)
 
 
