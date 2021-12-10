@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ui.tres" type="Theme" id=1]
+[ext_resource path="res://src/scripts/ui/stageProgressbar.gd" type="Script" id=2]
+
+[node name="ProgressBar" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="__progress__" type="ProgressBar" parent="."]
+margin_right = 1024.0
+margin_bottom = 16.0
+theme = ExtResource( 1 )
+value = 50.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="__time__" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 24.0
+margin_right = 112.0
+margin_bottom = 63.0
+theme = ExtResource( 1 )
+text = "0:00
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}

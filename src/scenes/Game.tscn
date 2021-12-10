@@ -65,9 +65,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ShopButton" type="Button" parent="Control" groups=[
-"draggable",
-]]
+[node name="ShopButton" type="Button" parent="Control" groups=["draggable"]]
 margin_left = 8.0
 margin_top = 279.0
 margin_right = 432.0
