@@ -3,13 +3,11 @@ extends Node2D
 
 var progress
 var time
-var stage
 
 func _ready():
 	progress = find_node('__progress__')
 	time = find_node('__time__')
-	stage = get_parent()
-	stage.connect('time_updated', self, '_on_time_updated')
+	get_parent().connect('time_updated', self, '_on_time_updated')
 	
 func _on_time_updated(timestamp):
 	var timeleft = max(0, global.stage_time - timestamp)

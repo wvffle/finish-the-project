@@ -1,6 +1,16 @@
-[gd_resource type="Theme" load_steps=5 format=2]
+[gd_resource type="Theme" load_steps=8 format=2]
 
 [ext_resource path="res://assets/fonts/Boxy-Bold.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.960784, 0.960784, 0.960784, 1 )
+
+[sub_resource type="StyleBoxLine" id=6]
+color = Color( 0.396078, 0.396078, 0.396078, 1 )
+thickness = 10
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
@@ -14,6 +24,9 @@ font_data = ExtResource( 1 )
 
 [resource]
 default_font = SubResource( 1 )
+HSlider/styles/grabber_area = SubResource( 4 )
+HSlider/styles/grabber_area_highlight = SubResource( 5 )
+HSlider/styles/slider = SubResource( 6 )
 ProgressBar/colors/font_color = Color( 1, 1, 1, 1 )
 ProgressBar/styles/bg = SubResource( 2 )
 ProgressBar/styles/fg = SubResource( 3 )
