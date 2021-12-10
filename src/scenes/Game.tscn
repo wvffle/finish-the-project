@@ -1,14 +1,15 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://ui.tres" type="Theme" id=1]
 [ext_resource path="res://src/scripts/ui/buttons/quitGameButton.gd" type="Script" id=2]
 [ext_resource path="res://src/scripts/ui/scenes/Game.gd" type="Script" id=3]
-[ext_resource path="res://src/scripts/ui/buttons/rankingButton.gd" type="Script" id=4]
+[ext_resource path="res://src/scripts/ui/buttons/scoreboardButton.gd" type="Script" id=4]
 [ext_resource path="res://addons/droppable/droppable_node.gd" type="Script" id=5]
 [ext_resource path="res://src/scripts/ui/buttons/continueButton.gd" type="Script" id=6]
 [ext_resource path="res://src/scripts/ui/buttons/shopButton.gd" type="Script" id=7]
 [ext_resource path="res://src/scripts/ui/buttons/settingsButton.gd" type="Script" id=8]
 [ext_resource path="res://src/scenes/Draggable.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/scripts/ui/buttons/rankingButton.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 84, 32 )
@@ -64,7 +65,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ShopButton" type="Button" parent="Control" groups=["draggable"]]
+[node name="ShopButton" type="Button" parent="Control" groups=[
+"draggable",
+]]
 margin_left = 8.0
 margin_top = 279.0
 margin_right = 432.0
@@ -77,19 +80,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="rankingButton" type="Button" parent="Control"]
-margin_left = 8.0
-margin_top = 374.0
-margin_right = 432.0
-margin_bottom = 460.0
-rect_pivot_offset = Vector2( 158, 43 )
-theme = ExtResource( 1 )
-text = "Ranking"
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="quitGameButton" type="Button" parent="Control"]
 margin_left = 8.0
 margin_top = 505.0
@@ -98,6 +88,38 @@ margin_bottom = 589.0
 theme = ExtResource( 1 )
 text = "Quit Game"
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+margin_left = 8.0
+margin_top = 374.0
+margin_right = 432.0
+margin_bottom = 458.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="scoreboardButton" type="Button" parent="Control/HBoxContainer"]
+modulate = Color( 1, 0.984314, 0.984314, 1 )
+margin_right = 210.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+text = "Scoreboard"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rankingButton" type="Button" parent="Control/HBoxContainer"]
+margin_left = 214.0
+margin_right = 424.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+text = "Ranking"
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -195,7 +217,9 @@ scale = Vector2( 480, 480 )
 [connection signal="pressed" from="Control/SettingsButton" to="Control/SettingsButton" method="_on_SettingsButton_pressed"]
 [connection signal="mouse_entered" from="Control/ShopButton" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Control/ShopButton" to="Control/ShopButton" method="_on_ShopButton_pressed"]
-[connection signal="mouse_entered" from="Control/rankingButton" to="." method="_on_Button_mouse_entered"]
-[connection signal="pressed" from="Control/rankingButton" to="Control/rankingButton" method="_on_rankingButton_pressed"]
 [connection signal="button_up" from="Control/quitGameButton" to="Control/quitGameButton" method="_on_Button2_button_up"]
 [connection signal="mouse_entered" from="Control/quitGameButton" to="." method="_on_Button_mouse_entered"]
+[connection signal="mouse_entered" from="Control/HBoxContainer/scoreboardButton" to="." method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="Control/HBoxContainer/scoreboardButton" to="Control/HBoxContainer/scoreboardButton" method="_on_scoreboardButton_pressed"]
+[connection signal="mouse_entered" from="Control/HBoxContainer/rankingButton" to="." method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="Control/HBoxContainer/rankingButton" to="Control/HBoxContainer/rankingButton" method="_on_rankingButton_pressed"]
