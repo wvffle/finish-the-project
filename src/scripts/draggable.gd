@@ -62,6 +62,10 @@ func set_size(w = 0, h = 0):
 		if 'height' in child:
 			max_height = max(max_height, child.height)
 			
+		if 'rect_size' in child:
+			max_width = max(max_width, child.rect_size.x / 2)
+			max_height = max(max_height, child.rect_size.y / 2)
+			
 		if child is RichTextLabel:
 			var longest_line = ""
 			for line in child.text.split('\n'):
