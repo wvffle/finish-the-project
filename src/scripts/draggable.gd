@@ -36,8 +36,8 @@ func get_nerest_point():
 func _ready():
 	move_child($__area__, get_child_count())
 	
-	# FIX: The initial RectangleShape2D defined in the scene
-	#      is shared between all of the instances.
+	# HACK: The initial RectangleShape2D defined in the scene
+	#       is shared between all of the instances.
 	$__area__/__shape__.shape = RectangleShape2D.new()
 	set_size()
 	
