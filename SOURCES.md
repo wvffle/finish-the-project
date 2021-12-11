@@ -1,1 +1,3 @@
  - Boxy Bold Font - https://opengameart.org/content/boxy-bold-truetype-font
+ - Mini Pixel-7 Font - https://www.fontspace.com/mini-pixel-7-font-f15306
+ - Kenney's input - https://opengameart.org/content/input-prompts-pixel-16%C3%97

@@ -1,7 +1,7 @@
 extends ColorRect
 
 var area
-var selected = false
+var selected
 
 func _ready():
 	area = Area2D.new()
@@ -9,11 +9,11 @@ func _ready():
 	area.add_to_group('zone')
 	mouse_filter = MOUSE_FILTER_IGNORE
 
-func select():
-	selected = true
+func select(draggable):
+	selected = draggable
 
 func deselect():
-	selected = false
+	selected = null
 
 func can_select():
-	return not selected
+	return selected == null

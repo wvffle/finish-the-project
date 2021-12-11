@@ -1,8 +1,23 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/scripts/stage.gd" type="Script" id=1]
 [ext_resource path="res://src/scenes/Pause.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/scenes/StageTimeProgressbar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/scripts/stages/dev.gd" type="Script" id=4]
+[ext_resource path="res://ui.tres" type="Theme" id=5]
+[ext_resource path="res://assets/images/kenneys_input.png" type="Texture" id=6]
+[ext_resource path="res://addons/droppable/droppable_node.gd" type="Script" id=7]
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 512, 32, 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 460, 191.669 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 460, 41.191 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -12,3 +27,68 @@ script = ExtResource( 1 )
 [node name="PauseMenu" parent="." instance=ExtResource( 2 )]
 visible = false
 position = Vector2( 33, 28 )
+
+[node name="Logic" type="Node2D" parent="."]
+position = Vector2( 60, 79 )
+script = ExtResource( 4 )
+
+[node name="__next__" type="Control" parent="Logic"]
+modulate = Color( 1, 1, 1, 0.14 )
+margin_left = 773.0
+margin_top = -60.0
+margin_right = 956.0
+margin_bottom = -28.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text" type="Label" parent="Logic/__next__"]
+margin_top = 6.0
+margin_right = 40.0
+margin_bottom = 14.0
+theme = ExtResource( 5 )
+custom_colors/font_color = Color( 0.862745, 0.882353, 0.905882, 1 )
+text = "Next stage"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Logic/__next__"]
+position = Vector2( 157, 14 )
+texture = SubResource( 3 )
+
+[node name="__editor__" type="Area2D" parent="Logic"]
+position = Vector2( 0, 38 )
+
+[node name="__shape__" type="CollisionShape2D" parent="Logic/__editor__"]
+position = Vector2( 450.134, 175.713 )
+shape = SubResource( 1 )
+
+[node name="__answers__" type="Area2D" parent="Logic"]
+position = Vector2( 0, 433 )
+
+[node name="__shape__" type="CollisionShape2D" parent="Logic/__answers__"]
+position = Vector2( 450.134, 31.1906 )
+shape = SubResource( 2 )
+
+[node name="__filename__" type="Label" parent="Logic"]
+margin_right = 40.0
+margin_bottom = 14.0
+theme = ExtResource( 5 )
+text = "filename.gd"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="__blank_line__" type="ColorRect" parent="Logic"]
+margin_left = 16.0
+margin_top = 62.0
+margin_right = 516.0
+margin_bottom = 94.0
+color = Color( 0.129412, 0.129412, 0.129412, 1 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="gui_input" from="Logic/__next__" to="Logic" method="_on___next___gui_input"]

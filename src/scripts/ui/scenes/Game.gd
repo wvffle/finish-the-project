@@ -9,6 +9,7 @@ func _on_Button_mouse_entered():
 
 
 func _on_newGameButton_pressed():
+	randomize()
 	global.start_game()
 
 

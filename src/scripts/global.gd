@@ -3,10 +3,11 @@ extends Node
 const DEFAULT_STAGE_TIME = 30
 const SAVE_FILE = "save.json"
 const CONFIG_FILE = "config.json"
+
 const _STAGE_ORDER = [
+	'StageDeveloper',
 	'StageProjectManager',
 	'StageTester',
-	'StageDeveloper'
 ]
 const DIFFICULTY_MODIFIERS = [
 	1.2,
@@ -31,14 +32,23 @@ var _stage = 0
 
 var _first_start = true
 
+# === DEV START ===
 func start_game():
 	lives = 3
 	level = 1
 	score = 0
 	_stage = 0
+	
+	# dev:skip-next-line
 	print('new game')
+	
 	# TODO: Display remaining lives screen for 3 seconds
+	
+	# dev:blank-next-line
 	start_stage(_STAGE_ORDER[_stage])
+	# dev:wrong-answer:start_game(_STAGE_ORDER[_stage])
+	# dev:wrong-answer:start_stage(_STAGE_ORDER[stage])
+# === DEV END ===
 	
 func start_stage(stage):
 	stage_time = (DEFAULT_STAGE_TIME - (DEFAULT_STAGE_TIME * pow(level, 2) / 100)) * DIFFICULTY_MODIFIERS[difficulty]
