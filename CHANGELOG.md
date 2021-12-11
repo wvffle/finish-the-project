@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://devtools.wi.pb.edu.pl:7999/gpz/finish-the-project/compare/v1.2.0...v1.3.0) (2021-12-11)
+
+
+### Features
+
+* add developer stage ([13fa6c3](https://devtools.wi.pb.edu.pl:7999/gpz/finish-the-project/commit/13fa6c39086404a1a8d9402cf5bb1edf359c80af))
+* add difficulty value to config file and delete in save file ([0af3273](https://devtools.wi.pb.edu.pl:7999/gpz/finish-the-project/commit/0af32730eaa347f3a0cd05edb8069a30f78d565f))
+* add more questions ([5c34799](https://devtools.wi.pb.edu.pl:7999/gpz/finish-the-project/commit/5c3479934910a9897a0c0533d460fbb5983a4ff6))
+* add progressbar ([c6dee65](https://devtools.wi.pb.edu.pl:7999/gpz/finish-the-project/commit/c6dee6510a5d0a7903a7437dc187be1f5d83895e))
+
+
+### Bug Fixes
+
+* fix draggable control size being smaller than children ([d8285e4](https://devtools.wi.pb.edu.pl:7999/gpz/finish-the-project/commit/d8285e47b5f8ccd5d2f5e0fcb1b16933f55f6bd1))
+* remove useless variable ([c9f66c0](https://devtools.wi.pb.edu.pl:7999/gpz/finish-the-project/commit/c9f66c0ac2f9df2854e57ca2888c12afa00be5f5))
+* restore difficulty in save file ([955e42f](https://devtools.wi.pb.edu.pl:7999/gpz/finish-the-project/commit/955e42f27b37ae8a62c2097a07f8a2c2bdfe2af0))
+
 ## [1.2.0](https://devtools.wi.pb.edu.pl:7999/gpz/finish-the-project/compare/v1.1.0...v1.2.0) (2021-12-10)
 
 
