@@ -68,24 +68,37 @@ func stage_won(remaining_time):
 	print('stage won')
 	_next_stage()
 	
+# === DEV START ===
 func stage_lost(remaining_time):
 	lives -= 1
 	
 	if lives == 0:
+		# dev:blank-next-line
 		return game_lost()
+		# dev:wrong-answer:game_lost()
 		
 	# TODO: Display remaining lives screen for 3 seconds
 	emit_signal('stage_lost', remaining_time, 0)
-	print('stage lost')
-	_next_stage()
 	
+	# dev:skip-next-line
+	print('stage lost')
+	# dev:blank-next-line
+	_next_stage()
+	# dev:wrong-answer:game_won()
+# === DEV END ===
+	
+# === DEV START ===
 func _next_stage():
 	_stage += 1
 	if _stage >= 3:
+		# dev:blank-next-line
 		level += 1
+		# dev:wrong-answer:lives += 1
 		_stage = 0
 	start_stage(_STAGE_ORDER[_stage])
+# === DEV END ===
 		
+# === DEV START ===
 func game_lost():
 	# TODO: Display score screen
 	# TODO: Save score
@@ -94,7 +107,11 @@ func game_lost():
 	print('score: ' + str(score))
 
 	# TODO: Remove
+	# dev:blank-next-line
 	get_tree().change_scene("res://src/scenes/Game.tscn")
+	# dev:wrong-answer:_back_to_menu()
+	# dev:wrong-answer:get_tree().show_root_scene()
+# === DEV END ===
 
 
 func save():
