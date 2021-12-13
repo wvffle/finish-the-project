@@ -1,5 +1,8 @@
 extends ColorRect
 
+
+signal selected(draggable)
+
 var area
 var selected
 
@@ -11,6 +14,7 @@ func _ready():
 
 func select(draggable):
 	selected = draggable
+	emit_signal("selected", draggable)
 
 func deselect():
 	selected = null

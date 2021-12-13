@@ -65,7 +65,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ShopButton" type="Button" parent="Control" groups=["draggable"]]
+[node name="ShopButton" type="Button" parent="Control" groups=[
+"draggable",
+]]
 margin_left = 8.0
 margin_top = 279.0
 margin_right = 432.0
@@ -123,10 +125,10 @@ __meta__ = {
 }
 
 [node name="Droppable" type="ColorRect" parent="."]
-margin_left = 32.0
-margin_top = 176.0
-margin_right = 488.0
-margin_bottom = 232.0
+margin_left = 51.0
+margin_top = 168.0
+margin_right = 507.0
+margin_bottom = 224.0
 color = Color( 0.572549, 0.180392, 0.180392, 1 )
 script = ExtResource( 5 )
 __meta__ = {

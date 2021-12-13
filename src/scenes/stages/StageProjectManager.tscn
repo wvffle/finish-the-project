@@ -1,14 +1,21 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/scripts/stage.gd" type="Script" id=1]
 [ext_resource path="res://src/scenes/Pause.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/scenes/StageTimeProgressbar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/scripts/stages/pm.gd" type="Script" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://addons/droppable/droppable_node.gd" type="Script" id=6]
+[ext_resource path="res://src/scenes/Draggable.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 25, 26.9444 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="ProgressBar" parent="." instance=ExtResource( 3 )]
+position = Vector2( 14, 15 )
 
 [node name="PauseMenu" parent="." instance=ExtResource( 2 )]
 visible = false
@@ -34,3 +41,281 @@ color = Color( 0.831373, 0.0941176, 0.0941176, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="__testers__" type="Node2D" parent="Logic"]
+position = Vector2( 26, 511 )
+
+[node name="ColorRect" type="ColorRect" parent="Logic/__testers__"]
+margin_left = 37.0
+margin_top = -254.0
+margin_right = 77.0
+margin_bottom = -214.0
+rect_pivot_offset = Vector2( 20, 27.0797 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect12" type="ColorRect" parent="Logic/__testers__"]
+margin_left = 17.0
+margin_top = -192.0
+margin_right = 57.0
+margin_bottom = -152.0
+rect_pivot_offset = Vector2( 20, 27.0797 )
+script = ExtResource( 6 )
+
+[node name="ColorRect13" type="ColorRect" parent="Logic/__testers__"]
+margin_left = 84.0
+margin_top = -305.0
+margin_right = 124.0
+margin_bottom = -265.0
+rect_pivot_offset = Vector2( 20, 27.0797 )
+script = ExtResource( 6 )
+
+[node name="ColorRect14" type="ColorRect" parent="Logic/__testers__"]
+margin_left = 100.0
+margin_top = -211.0
+margin_right = 140.0
+margin_bottom = -171.0
+rect_pivot_offset = Vector2( 20, 27.0797 )
+script = ExtResource( 6 )
+
+[node name="ColorRect8" type="ColorRect" parent="Logic/__testers__"]
+margin_left = 86.0
+margin_top = -151.0
+margin_right = 126.0
+margin_bottom = -111.0
+rect_pivot_offset = Vector2( 20, 27.0797 )
+script = ExtResource( 6 )
+
+[node name="ColorRect16" type="ColorRect" parent="Logic/__testers__"]
+margin_left = 137.0
+margin_top = -266.0
+margin_right = 177.0
+margin_bottom = -226.0
+rect_pivot_offset = Vector2( 20, 27.0797 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect17" type="ColorRect" parent="Logic/__testers__"]
+margin_left = 138.0
+margin_top = -332.0
+margin_right = 178.0
+margin_bottom = -292.0
+rect_pivot_offset = Vector2( 20, 27.0797 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="__devs__" type="Node2D" parent="Logic"]
+position = Vector2( 26, 511 )
+
+[node name="ColorRect18" type="ColorRect" parent="Logic/__devs__"]
+margin_left = 822.0
+margin_top = -278.0
+margin_right = 862.0
+margin_bottom = -238.0
+rect_pivot_offset = Vector2( 20, 27.0797 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect19" type="ColorRect" parent="Logic/__devs__"]
+margin_left = 815.0
+margin_top = -226.0
+margin_right = 855.0
+margin_bottom = -186.0
+rect_pivot_offset = Vector2( 20, 27.0797 )
+script = ExtResource( 6 )
+
+[node name="ColorRect20" type="ColorRect" parent="Logic/__devs__"]
+margin_left = 830.0
+margin_top = -168.0
+margin_right = 870.0
+margin_bottom = -128.0
+rect_pivot_offset = Vector2( 20, 27.0797 )
+script = ExtResource( 6 )
+
+[node name="ColorRect21" type="ColorRect" parent="Logic/__devs__"]
+margin_left = 724.0
+margin_top = -221.0
+margin_right = 764.0
+margin_bottom = -181.0
+rect_pivot_offset = Vector2( 20, 27.0797 )
+script = ExtResource( 6 )
+
+[node name="ColorRect9" type="ColorRect" parent="Logic/__devs__"]
+margin_left = 762.0
+margin_top = -141.0
+margin_right = 802.0
+margin_bottom = -101.0
+rect_pivot_offset = Vector2( 20, 27.0797 )
+script = ExtResource( 6 )
+
+[node name="ColorRect10" type="ColorRect" parent="Logic/__devs__"]
+margin_left = 741.0
+margin_top = -280.0
+margin_right = 781.0
+margin_bottom = -240.0
+rect_pivot_offset = Vector2( 20, 27.0797 )
+script = ExtResource( 6 )
+
+[node name="ColorRect11" type="ColorRect" parent="Logic/__devs__"]
+margin_left = 901.0
+margin_top = -227.0
+margin_right = 941.0
+margin_bottom = -187.0
+rect_pivot_offset = Vector2( 20, 27.0797 )
+script = ExtResource( 6 )
+
+[node name="__unassigned__" type="Node2D" parent="Logic"]
+position = Vector2( -231, 657 )
+
+[node name="ColorRect18" type="ColorRect" parent="Logic/__unassigned__"]
+margin_left = 509.0
+margin_top = -163.0
+margin_right = 549.0
+margin_bottom = -123.0
+rect_pivot_offset = Vector2( 20, 27.0797 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect19" type="ColorRect" parent="Logic/__unassigned__"]
+margin_left = 597.0
+margin_top = -168.0
+margin_right = 637.0
+margin_bottom = -128.0
+rect_pivot_offset = Vector2( 20, 27.0797 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect20" type="ColorRect" parent="Logic/__unassigned__"]
+margin_left = 862.0
+margin_top = -158.0
+margin_right = 902.0
+margin_bottom = -118.0
+rect_pivot_offset = Vector2( 20, 27.0797 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect21" type="ColorRect" parent="Logic/__unassigned__"]
+margin_left = 714.0
+margin_top = -173.0
+margin_right = 754.0
+margin_bottom = -133.0
+rect_pivot_offset = Vector2( 20, 27.0797 )
+script = ExtResource( 6 )
+
+[node name="ColorRect9" type="ColorRect" parent="Logic/__unassigned__"]
+margin_left = 793.0
+margin_top = -160.0
+margin_right = 833.0
+margin_bottom = -120.0
+rect_pivot_offset = Vector2( 20, 27.0797 )
+script = ExtResource( 6 )
+
+[node name="ColorRect10" type="ColorRect" parent="Logic/__unassigned__"]
+margin_left = 660.0
+margin_top = -169.0
+margin_right = 700.0
+margin_bottom = -129.0
+rect_pivot_offset = Vector2( 20, 27.0797 )
+script = ExtResource( 6 )
+
+[node name="ColorRect11" type="ColorRect" parent="Logic/__unassigned__"]
+margin_left = 941.0
+margin_top = -165.0
+margin_right = 981.0
+margin_bottom = -125.0
+rect_pivot_offset = Vector2( 20, 27.0797 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="draggable" parent="Logic" instance=ExtResource( 7 )]
+position = Vector2( 267, 480 )
+
+[node name="shape" type="CollisionShape2D" parent="Logic/draggable"]
+position = Vector2( 31, 35 )
+shape = SubResource( 1 )
+
+[node name="icon2" type="Sprite" parent="Logic/draggable"]
+position = Vector2( 30, 31 )
+texture = ExtResource( 5 )
+
+[node name="draggable2" parent="Logic" instance=ExtResource( 7 )]
+position = Vector2( 353, 472 )
+
+[node name="shape" type="CollisionShape2D" parent="Logic/draggable2"]
+position = Vector2( 31, 35 )
+shape = SubResource( 1 )
+
+[node name="icon2" type="Sprite" parent="Logic/draggable2"]
+position = Vector2( 30, 31 )
+texture = ExtResource( 5 )
+
+[node name="draggable3" parent="Logic" instance=ExtResource( 7 )]
+position = Vector2( 417, 478 )
+
+[node name="shape" type="CollisionShape2D" parent="Logic/draggable3"]
+position = Vector2( 31, 35 )
+shape = SubResource( 1 )
+
+[node name="icon2" type="Sprite" parent="Logic/draggable3"]
+position = Vector2( 30, 31 )
+texture = ExtResource( 5 )
+
+[node name="draggable4" parent="Logic" instance=ExtResource( 7 )]
+position = Vector2( 479, 479 )
+
+[node name="shape" type="CollisionShape2D" parent="Logic/draggable4"]
+position = Vector2( 31, 35 )
+shape = SubResource( 1 )
+
+[node name="icon2" type="Sprite" parent="Logic/draggable4"]
+position = Vector2( 30, 31 )
+texture = ExtResource( 5 )
+
+[node name="draggable5" parent="Logic" instance=ExtResource( 7 )]
+position = Vector2( 555, 478 )
+
+[node name="shape" type="CollisionShape2D" parent="Logic/draggable5"]
+position = Vector2( 31, 35 )
+shape = SubResource( 1 )
+
+[node name="icon2" type="Sprite" parent="Logic/draggable5"]
+position = Vector2( 30, 31 )
+texture = ExtResource( 5 )
+
+[node name="draggable6" parent="Logic" instance=ExtResource( 7 )]
+position = Vector2( 624, 488 )
+
+[node name="shape" type="CollisionShape2D" parent="Logic/draggable6"]
+position = Vector2( 31, 35 )
+shape = SubResource( 1 )
+
+[node name="icon2" type="Sprite" parent="Logic/draggable6"]
+position = Vector2( 30, 31 )
+texture = ExtResource( 5 )
+
+[node name="draggable7" parent="Logic" instance=ExtResource( 7 )]
+position = Vector2( 707, 480 )
+
+[node name="shape" type="CollisionShape2D" parent="Logic/draggable7"]
+position = Vector2( 31, 35 )
+shape = SubResource( 1 )
+
+[node name="icon2" type="Sprite" parent="Logic/draggable7"]
+position = Vector2( 30, 31 )
+texture = ExtResource( 5 )
