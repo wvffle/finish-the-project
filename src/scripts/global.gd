@@ -5,8 +5,8 @@ const SAVE_FILE = "save.json"
 const CONFIG_FILE = "config.json"
 
 const _STAGE_ORDER = [
-	'StageDeveloper',
 	'StageProjectManager',
+	'StageDeveloper',
 	'StageTester',
 ]
 const DIFFICULTY_MODIFIERS = [
