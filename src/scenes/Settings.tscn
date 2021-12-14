@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://ui.tres" type="Theme" id=1]
 [ext_resource path="res://src/scripts/ui/buttons/backMenuButton.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://src/scripts/ui/buttons/hardButton.gd" type="Script" id=8]
 [ext_resource path="res://src/scripts/ui/buttons/soundToggleButton.gd" type="Script" id=9]
 [ext_resource path="res://src/scripts/ui/buttons/defaultSettingsButton.gd" type="Script" id=10]
+[ext_resource path="res://src/scripts/ui/buttons/hardResetButton.gd" type="Script" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 5 )
@@ -32,10 +33,10 @@ __meta__ = {
 }
 
 [node name="backMenuButton" type="Button" parent="Control"]
-margin_left = 607.0
-margin_top = 515.0
-margin_right = 1029.0
-margin_bottom = 599.0
+margin_left = 566.0
+margin_top = 510.318
+margin_right = 988.0
+margin_bottom = 594.318
 theme = ExtResource( 1 )
 text = "Back"
 script = ExtResource( 2 )
@@ -44,12 +45,12 @@ __meta__ = {
 }
 
 [node name="defaultSettingsButton" type="Button" parent="Control"]
-margin_left = 113.0
-margin_top = 427.318
-margin_right = 535.0
-margin_bottom = 511.318
+margin_left = 566.0
+margin_top = 158.318
+margin_right = 988.0
+margin_bottom = 242.318
 theme = ExtResource( 1 )
-text = "Default"
+text = "Reset settings"
 script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -113,10 +114,10 @@ __meta__ = {
 }
 
 [node name="easyButton" type="Button" parent="Control"]
-margin_left = 116.044
-margin_top = 124.453
-margin_right = 538.044
-margin_bottom = 208.453
+margin_left = 40.0
+margin_top = 102.318
+margin_right = 462.0
+margin_bottom = 186.318
 custom_fonts/font = SubResource( 1 )
 toggle_mode = true
 text = "Easy"
@@ -136,10 +137,10 @@ __meta__ = {
 }
 
 [node name="mediumButton" type="Button" parent="Control"]
-margin_left = 116.044
-margin_top = 225.36
-margin_right = 538.044
-margin_bottom = 309.36
+margin_left = 40.0
+margin_top = 222.318
+margin_right = 462.0
+margin_bottom = 306.318
 custom_fonts/font = SubResource( 2 )
 toggle_mode = true
 text = "Medium"
@@ -149,14 +150,26 @@ __meta__ = {
 }
 
 [node name="hardButton" type="Button" parent="Control"]
-margin_left = 114.362
-margin_top = 326.268
-margin_right = 536.362
-margin_bottom = 410.268
+margin_left = 40.0
+margin_top = 342.318
+margin_right = 462.0
+margin_bottom = 426.318
 custom_fonts/font = SubResource( 3 )
 toggle_mode = true
 text = "Hard"
 script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hardResetButton" type="Button" parent="Control"]
+margin_left = 566.0
+margin_top = 279.318
+margin_right = 988.0
+margin_bottom = 363.318
+custom_fonts/font = SubResource( 1 )
+text = "Reset game state"
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -175,3 +188,6 @@ __meta__ = {
 [connection signal="pressed" from="Control/mediumButton" to="Control/mediumButton" method="_on_mediumButton_pressed"]
 [connection signal="mouse_entered" from="Control/hardButton" to="Control/hardButton" method="_on_hardButton_mouse_entered"]
 [connection signal="pressed" from="Control/hardButton" to="Control/hardButton" method="_on_hardButton_pressed"]
+[connection signal="mouse_entered" from="Control/hardResetButton" to="Control/hardResetButton" method="_on_hardResetButton_mouse_entered"]
+[connection signal="pressed" from="Control/hardResetButton" to="Control/defaultSettingsButton" method="_on_defaultSettingsButton_pressed"]
+[connection signal="pressed" from="Control/hardResetButton" to="Control/hardResetButton" method="_on_hardResetButton_pressed"]

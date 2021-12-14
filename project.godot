@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 global="*res://src/scripts/global.gd"
 sounds="*res://src/scripts/sounds.gd"
 BackgroundSounds="*res://src/scenes/BackgroundSounds.tscn"
+file="*res://src/scripts/file.gd"
 
 [editor_plugins]
 
