@@ -23,7 +23,7 @@ func _ready ():
 	var g = p + c
 	# dev:wrong-answer:var g = 8 + c
 	# dev:blank-next-line
-	var f = c - p
+	var f = c - p + 1
 	# dev:wrong-answer:var f = c - 8
 	var dL = w / 2 / g
 	var dP = w / 2 / f
