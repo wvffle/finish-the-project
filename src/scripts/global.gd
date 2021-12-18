@@ -1,5 +1,6 @@
 extends Node
 
+
 const DEFAULT_STAGE_TIME = 30
 const SAVE_FILE = "save.json"
 const CONFIG_FILE = "config.json"
@@ -9,11 +10,13 @@ const _STAGE_ORDER = [
 	'StageDeveloper',
 	'StageTester',
 ]
+
 const DIFFICULTY_MODIFIERS = [
 	1.2,
 	1,
 	0.8
 ]
+
 signal stage_lost(remaining_time, score)
 signal stage_won(remaining_time, score)
 
@@ -60,6 +63,7 @@ func start_stage(stage):
 	print('time: ' + str(stage_time))
 	print('score: ' + str(score))
 	get_tree().change_scene("res://src/scenes/stages/" + stage + ".tscn")
+
 	
 func stage_won(remaining_time):
 	var delta = floor(100 + 100 * remaining_time / max(stage_time, 0.001))
@@ -125,6 +129,7 @@ func save():
 	
 	file.save_file(SAVE_FILE, save_dict)
 
+
 func save_config():
 	var config_dict = {
 		"mainThemeVolume": sounds.mainTheme.get_volume_db(),
@@ -148,6 +153,7 @@ func load_game():
 	_stage = save.stage
 	difficulty = save.difficulty
 	start_stage(_STAGE_ORDER[_stage])
+	
 	
 func load_config():
 	if not file.file_exists(CONFIG_FILE):

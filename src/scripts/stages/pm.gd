@@ -8,6 +8,7 @@ var tick
 var x
 var p
 
+
 func _ready ():
 	var a = (randi() % 7)
 	var b = (7 - a)
@@ -54,12 +55,16 @@ func _ready ():
 		
 	for child in $__testers__.get_children():
 		child.connect('selected', self, '_on_selected')
+	
 			
 func _on_selected(draggable):
 	calc()
+
 	
 var devs = 0
 var testers = 0
+
+
 func calc():
 	devs = 0
 	for child in $__devs__.get_children():

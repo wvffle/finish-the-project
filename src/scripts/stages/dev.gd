@@ -7,6 +7,8 @@ onready var font = DynamicFont.new()
 
 var all_blanks = 0
 var question
+
+
 func _ready():
 	font.font_data = preload('res://assets/fonts/MiniPixel7-6LKv.ttf')
 	font.size = 32
@@ -161,6 +163,7 @@ func _ready():
 		x += width + 8
 		
 		find_node('__answers__').add_child(node)
+
 		
 func _create_answer ():
 	var draggable = Draggable.instance()
@@ -177,6 +180,8 @@ func _create_answer ():
 	
 
 var selected = 0
+
+
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and not event.pressed:
@@ -200,6 +205,7 @@ func _on___next___gui_input(event):
 	if all_blanks == selected and event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			next_stage()
+
 
 func next_stage():
 	var i = 0

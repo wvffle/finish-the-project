@@ -7,9 +7,11 @@ func save_file(filename, data):
 	file.store_line(to_json(data))
 	file.close()
 
+
 func file_exists(filename):
 	var file = File.new()
 	return file.file_exists(filename)
+	
 	
 func load_file(filename):
 	var file = File.new()
@@ -17,6 +19,7 @@ func load_file(filename):
 	var data = parse_json(file.get_line())
 	file.close()
 	return data
+	
 	
 func file_delete(path):
 	var dir = Directory.new() 

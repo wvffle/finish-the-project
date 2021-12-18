@@ -13,5 +13,6 @@ func _on_easyButton_pressed():
 	global.difficulty = 0
 	set_pressed_no_signal(true)
 
+
 func _on_easyButton_mouse_entered():
 	sounds.button_hover()

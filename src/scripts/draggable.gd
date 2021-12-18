@@ -6,6 +6,7 @@ var drop_point
 var droppable
 onready var droppable_nodes = get_tree().get_nodes_in_group("zone")
 
+
 func get_nerest_point():
 	var min_distance = INF
 	var point = drop_point
@@ -33,6 +34,7 @@ func get_nerest_point():
 	else:
 		droppable = null
 
+
 func _ready():
 	move_child($__area__, get_child_count())
 	
@@ -40,6 +42,7 @@ func _ready():
 	#       is shared between all of the instances.
 	$__area__/__shape__.shape = RectangleShape2D.new()
 	set_size()
+
 	
 func set_size(w = 0, h = 0):
 	var max_width = w / 2
@@ -86,6 +89,7 @@ func set_size(w = 0, h = 0):
 	$__area__/__shape__.shape.set_extents(Vector2(max_width, max_height))
 	$__area__/__shape__.transform.origin = Vector2(max_width, max_height)
 
+
 func _physics_process(delta):
 	if selected:
 		global_position = lerp(global_position, get_global_mouse_position() - $__area__/__shape__.transform.origin, 25 * delta)
@@ -98,6 +102,7 @@ func _input(event):
 		if event.button_index == BUTTON_LEFT and not event.pressed:
 			selected = false
 			get_nerest_point()
+	
 		
 func _on___area___input_event(viewport, event, shape_idx):
 	if not selected and Input.is_action_just_pressed("click"):
