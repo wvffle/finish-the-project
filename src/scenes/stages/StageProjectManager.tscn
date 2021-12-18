@@ -35,7 +35,7 @@ __meta__ = {
 [node name="__tick__" type="ColorRect" parent="Logic/__track__"]
 margin_left = 446.0
 margin_top = 1.0
-margin_right = 486.0
+margin_right = 448.0
 margin_bottom = 36.0
 color = Color( 0.831373, 0.0941176, 0.0941176, 1 )
 __meta__ = {

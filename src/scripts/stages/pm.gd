@@ -13,7 +13,7 @@ func _ready ():
 	var b = (7 - a)
 	
 	# === DEV START ===
-	var l = 71
+	var l = 15
 	# dev:blank-next-line
 	var c = floor(l/2)
 	p = b - a
@@ -71,7 +71,7 @@ func calc():
 		if not child.can_select():
 			testers += 1
 			
-	x = tick[str(devs - testers)]
+	x = tick[str(devs - testers)] + $__track__.rect_global_position.x
 
 
 func _physics_process(delta):
