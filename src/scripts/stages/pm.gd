@@ -10,37 +10,31 @@ var p
 
 
 func _ready ():
-	var a = (randi() % 7)
-	var b = (7 - a)
+	var n = 7
+	var a = (randi() % n)
+	var b = (n - a)
 	
-	# === DEV START ===
-	var l = 15
-	# dev:blank-next-line
-	var c = floor(l/2)
+	var l = n * 2 + 1
+	
 	p = b - a
-	# dev:wrong-answer:var c = l / 2
-	# dev:blank-next-line
-	var g = p + c
-	# dev:wrong-answer:var g = 8 + c
-	# dev:blank-next-line
-	var f = c - p + 1
-	# dev:wrong-answer:var f = c - 8
-	var dL = w / 2 / g
-	var dP = w / 2 / f
-	# === DEV END ===
+	p = -7
+	
+	var g = p + n
+	var f = n - p
+	
 	
 	var offset =  -$__track__/__tick__.rect_size.x / 2
 	tick = {
-		str(-c): 0 + offset,
-		str(c): w + offset,
+		str(-n): 0 + offset,
+		str(n): w + offset,
 		str(p): w / 2 + offset
 	}
 	
 	for i in range(1, g):
-		tick[str(-c + i)] = i * dL + offset
+		tick[str(-n + i)] = i * w / 2 / g + offset
 		
 	for i in range(1, f):
-		tick[str(c - f + i)] = i * dP + w/2 + offset
+		tick[str(n - f + i)] = i * w / 2 / f + w / 2 + offset
 		
 	x = tick['0']
 	
