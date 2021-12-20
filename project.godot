@@ -21,6 +21,10 @@ sounds="*res://src/scripts/sounds.gd"
 BackgroundSounds="*res://src/scenes/BackgroundSounds.tscn"
 file="*res://src/scripts/file.gd"
 
+[display]
+
+window/stretch/mode="2d"
+
 [editor_plugins]
 
 enabled=PoolStringArray("res://addons/droppable/plugin.cfg"  )
