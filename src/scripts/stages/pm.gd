@@ -17,7 +17,6 @@ func _ready ():
 	var l = n * 2 + 1
 	
 	p = b - a
-	p = -7
 	
 	var g = p + n
 	var f = n - p
