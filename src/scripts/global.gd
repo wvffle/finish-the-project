@@ -1,7 +1,7 @@
 extends Node
 
 
-const DEFAULT_STAGE_TIME = 30
+const DEFAULT_STAGE_TIME = 45
 const SAVE_FILE = "save.json"
 const CONFIG_FILE = "config.json"
 const SCOREBOARD_FILE = "scoreboard.json"
@@ -59,7 +59,7 @@ func start_game():
 # === DEV END ===
 	
 func start_stage(stage):
-	stage_time = (DEFAULT_STAGE_TIME - (DEFAULT_STAGE_TIME * pow(level, 2) / 100)) * DIFFICULTY_MODIFIERS[difficulty]
+	stage_time = (DEFAULT_STAGE_TIME - (DEFAULT_STAGE_TIME * pow(level, 2) / 1600)) * DIFFICULTY_MODIFIERS[difficulty]
 	save()
 	print('lives: ' + str(lives))
 	print('level: ' + str(level))
