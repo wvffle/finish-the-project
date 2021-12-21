@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://ui.tres" type="Theme" id=1]
 [ext_resource path="res://src/scripts/ui/buttons/backMenuButton.gd" type="Script" id=2]
+[ext_resource path="res://src/scripts/ui/scenes/scoreboard.gd" type="Script" id=3]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="ScoreboardMain" type="Control" parent="."]
 anchor_left = 0.5
@@ -34,7 +36,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScoreboardMain"]
+[node name="MainScoreboard" type="HBoxContainer" parent="ScoreboardMain"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -375.0
@@ -45,19 +47,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScoreboardMain/HBoxContainer"]
+[node name="Scorenames" type="VBoxContainer" parent="ScoreboardMain/MainScoreboard"]
 margin_right = 377.0
 margin_bottom = 75.0
 size_flags_horizontal = 3
 
-[node name="Name" type="Label" parent="ScoreboardMain/HBoxContainer/VBoxContainer"]
+[node name="HighScore" type="Label" parent="ScoreboardMain/MainScoreboard/Scorenames"]
 margin_right = 377.0
 margin_bottom = 35.0
 size_flags_vertical = 7
 text = "High Score     "
 valign = 1
 
-[node name="Name2" type="Label" parent="ScoreboardMain/HBoxContainer/VBoxContainer"]
+[node name="HighestLevelAchieved" type="Label" parent="ScoreboardMain/MainScoreboard/Scorenames"]
 margin_top = 39.0
 margin_right = 377.0
 margin_bottom = 75.0
@@ -66,13 +68,13 @@ size_flags_vertical = 7
 text = "Highest level achieved"
 valign = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="ScoreboardMain/HBoxContainer"]
+[node name="Scores" type="VBoxContainer" parent="ScoreboardMain/MainScoreboard"]
 margin_left = 381.0
 margin_right = 758.0
 margin_bottom = 75.0
 size_flags_horizontal = 3
 
-[node name="Score" type="Label" parent="ScoreboardMain/HBoxContainer/VBoxContainer2"]
+[node name="HighScore" type="Label" parent="ScoreboardMain/MainScoreboard/Scores"]
 margin_right = 377.0
 margin_bottom = 35.0
 size_flags_vertical = 7
@@ -80,7 +82,7 @@ text = "%d"
 align = 2
 valign = 1
 
-[node name="Score2" type="Label" parent="ScoreboardMain/HBoxContainer/VBoxContainer2"]
+[node name="HighestLevelAchieved" type="Label" parent="ScoreboardMain/MainScoreboard/Scores"]
 margin_top = 39.0
 margin_right = 377.0
 margin_bottom = 75.0
@@ -90,7 +92,7 @@ text = "%d"
 align = 2
 valign = 1
 
-[node name="HBoxContainer1" type="HBoxContainer" parent="ScoreboardMain"]
+[node name="StagesScoreboard" type="HBoxContainer" parent="ScoreboardMain"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -104,21 +106,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScoreboardMain/HBoxContainer1"]
+[node name="Stages" type="VBoxContainer" parent="ScoreboardMain/StagesScoreboard"]
 margin_right = 200.0
 margin_bottom = 297.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColumnName" type="Label" parent="ScoreboardMain/HBoxContainer1/VBoxContainer"]
+[node name="ColumnName" type="Label" parent="ScoreboardMain/StagesScoreboard/Stages"]
 margin_right = 200.0
 margin_bottom = 71.0
 size_flags_vertical = 7
 text = "Stage"
 valign = 1
 
-[node name="Name" type="Label" parent="ScoreboardMain/HBoxContainer1/VBoxContainer"]
+[node name="Tester" type="Label" parent="ScoreboardMain/StagesScoreboard/Stages"]
 margin_top = 75.0
 margin_right = 200.0
 margin_bottom = 146.0
@@ -127,7 +129,7 @@ size_flags_vertical = 7
 text = "Tester"
 valign = 1
 
-[node name="Name2" type="Label" parent="ScoreboardMain/HBoxContainer1/VBoxContainer"]
+[node name="Developer" type="Label" parent="ScoreboardMain/StagesScoreboard/Stages"]
 margin_top = 150.0
 margin_right = 200.0
 margin_bottom = 221.0
@@ -136,7 +138,7 @@ size_flags_vertical = 7
 text = "Developer"
 valign = 1
 
-[node name="Name3" type="Label" parent="ScoreboardMain/HBoxContainer1/VBoxContainer"]
+[node name="ProjectManager" type="Label" parent="ScoreboardMain/StagesScoreboard/Stages"]
 margin_top = 225.0
 margin_right = 200.0
 margin_bottom = 297.0
@@ -144,7 +146,7 @@ size_flags_vertical = 3
 text = "Project Manager"
 valign = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="ScoreboardMain/HBoxContainer1"]
+[node name="Wins" type="VBoxContainer" parent="ScoreboardMain/StagesScoreboard"]
 margin_left = 204.0
 margin_right = 386.0
 margin_bottom = 297.0
@@ -153,7 +155,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColumnName" type="Label" parent="ScoreboardMain/HBoxContainer1/VBoxContainer2"]
+[node name="ColumnName" type="Label" parent="ScoreboardMain/StagesScoreboard/Wins"]
 margin_right = 182.0
 margin_bottom = 71.0
 size_flags_vertical = 7
@@ -161,36 +163,36 @@ text = "Wins"
 align = 1
 valign = 1
 
-[node name="Score" type="Label" parent="ScoreboardMain/HBoxContainer1/VBoxContainer2"]
+[node name="Tester" type="Label" parent="ScoreboardMain/StagesScoreboard/Wins"]
 margin_top = 75.0
 margin_right = 182.0
 margin_bottom = 146.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-text = "%d"
+text = "%s"
 align = 1
 valign = 1
 
-[node name="Score2" type="Label" parent="ScoreboardMain/HBoxContainer1/VBoxContainer2"]
+[node name="Developer" type="Label" parent="ScoreboardMain/StagesScoreboard/Wins"]
 margin_top = 150.0
 margin_right = 182.0
 margin_bottom = 221.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-text = "%d"
+text = "%s"
 align = 1
 valign = 1
 
-[node name="Score3" type="Label" parent="ScoreboardMain/HBoxContainer1/VBoxContainer2"]
+[node name="ProjectManager" type="Label" parent="ScoreboardMain/StagesScoreboard/Wins"]
 margin_top = 225.0
 margin_right = 182.0
 margin_bottom = 297.0
 size_flags_vertical = 3
-text = "%d"
+text = "%s"
 align = 1
 valign = 1
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="ScoreboardMain/HBoxContainer1"]
+[node name="Losses" type="VBoxContainer" parent="ScoreboardMain/StagesScoreboard"]
 margin_left = 390.0
 margin_right = 572.0
 margin_bottom = 297.0
@@ -199,7 +201,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColumnName" type="Label" parent="ScoreboardMain/HBoxContainer1/VBoxContainer3"]
+[node name="ColumnName" type="Label" parent="ScoreboardMain/StagesScoreboard/Losses"]
 margin_right = 182.0
 margin_bottom = 71.0
 size_flags_vertical = 7
@@ -207,36 +209,36 @@ text = "Losses"
 align = 1
 valign = 1
 
-[node name="Score" type="Label" parent="ScoreboardMain/HBoxContainer1/VBoxContainer3"]
+[node name="Tester" type="Label" parent="ScoreboardMain/StagesScoreboard/Losses"]
 margin_top = 75.0
 margin_right = 182.0
 margin_bottom = 146.0
 size_flags_vertical = 7
-text = "%d"
+text = "%s"
 align = 1
 valign = 1
 
-[node name="Score2" type="Label" parent="ScoreboardMain/HBoxContainer1/VBoxContainer3"]
+[node name="Developer" type="Label" parent="ScoreboardMain/StagesScoreboard/Losses"]
 margin_top = 150.0
 margin_right = 182.0
 margin_bottom = 221.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-text = "%d"
+text = "%s"
 align = 1
 valign = 1
 
-[node name="Score3" type="Label" parent="ScoreboardMain/HBoxContainer1/VBoxContainer3"]
+[node name="ProjectManager" type="Label" parent="ScoreboardMain/StagesScoreboard/Losses"]
 margin_top = 225.0
 margin_right = 182.0
 margin_bottom = 297.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-text = "%d"
+text = "%s"
 align = 1
 valign = 1
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="ScoreboardMain/HBoxContainer1"]
+[node name="BestTime" type="VBoxContainer" parent="ScoreboardMain/StagesScoreboard"]
 margin_left = 576.0
 margin_right = 758.0
 margin_bottom = 297.0
@@ -245,7 +247,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColumnName" type="Label" parent="ScoreboardMain/HBoxContainer1/VBoxContainer4"]
+[node name="ColumnName" type="Label" parent="ScoreboardMain/StagesScoreboard/BestTime"]
 margin_right = 182.0
 margin_bottom = 71.0
 size_flags_vertical = 7
@@ -253,7 +255,7 @@ text = "Best time"
 align = 2
 valign = 1
 
-[node name="Score" type="Label" parent="ScoreboardMain/HBoxContainer1/VBoxContainer4"]
+[node name="Tester" type="Label" parent="ScoreboardMain/StagesScoreboard/BestTime"]
 margin_top = 75.0
 margin_right = 182.0
 margin_bottom = 146.0
@@ -262,7 +264,7 @@ text = "%d:%02d"
 align = 2
 valign = 1
 
-[node name="Score2" type="Label" parent="ScoreboardMain/HBoxContainer1/VBoxContainer4"]
+[node name="Developer" type="Label" parent="ScoreboardMain/StagesScoreboard/BestTime"]
 margin_top = 150.0
 margin_right = 182.0
 margin_bottom = 221.0
@@ -272,7 +274,7 @@ text = "%d:%02d"
 align = 2
 valign = 1
 
-[node name="Score3" type="Label" parent="ScoreboardMain/HBoxContainer1/VBoxContainer4"]
+[node name="ProjectManager" type="Label" parent="ScoreboardMain/StagesScoreboard/BestTime"]
 margin_top = 225.0
 margin_right = 182.0
 margin_bottom = 297.0

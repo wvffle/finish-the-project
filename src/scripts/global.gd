@@ -4,6 +4,7 @@ extends Node
 const DEFAULT_STAGE_TIME = 30
 const SAVE_FILE = "save.json"
 const CONFIG_FILE = "config.json"
+const SCOREBOARD_FILE = "scoreboard.json"
 
 const _STAGE_ORDER = [
 	'StageProjectManager',
@@ -34,6 +35,10 @@ var difficulty = 1
 var _stage = 0
 
 var _first_start = true
+
+var wins = [0,0,0];
+var losses = [0,0,0];
+var best_times = [0,0,0];
 
 # === DEV START ===
 func start_game():
@@ -70,12 +75,14 @@ func stage_won(remaining_time):
 	score += delta
 	emit_signal('stage_won', remaining_time, score)
 	print('stage won')
+	update_stage_scoreboard(true, remaining_time)
 	_next_stage()
 	
 # === DEV START ===
 func stage_lost(remaining_time):
 	lives -= 1
-	
+	update_stage_scoreboard(false, remaining_time)
+		
 	if lives == 0:
 		# dev:blank-next-line
 		return game_lost()
@@ -117,6 +124,14 @@ func game_lost():
 	# dev:wrong-answer:get_tree().show_root_scene()
 # === DEV END ===
 
+func update_stage_scoreboard(stage_won, remaining_time):
+	if stage_won:
+		wins[_stage] += 1;
+		best_times[_stage] = max(best_times[_stage], stage_time - remaining_time);
+	else:
+		losses[_stage] += 1;
+	save_scoreboard()
+
 
 func save():
 	var save_dict = {
@@ -137,8 +152,18 @@ func save_config():
 		"soundsCanPlay": sounds.mainTheme.is_playing(),
 		"difficulty": difficulty,
 	}
-	
+
 	file.save_file(CONFIG_FILE, config_dict)
+	
+	
+func save_scoreboard():
+	var scoreboard_dict = {
+		"wins": wins,
+		"losses": losses,
+		"best_times": best_times,
+	}
+	
+	file.save_file(SCOREBOARD_FILE, scoreboard_dict)
 
 	
 func load_game():
@@ -172,3 +197,14 @@ func load_config():
 		if _first_start:
 			sounds.mainTheme.play()
 	_first_start = false
+
+
+func load_scoreboard():
+	if not file.file_exists(SCOREBOARD_FILE):
+		return
+		
+	var scoreboard = file.load_file(SCOREBOARD_FILE)
+	
+	wins = scoreboard.wins
+	losses = scoreboard.losses
+	best_times = scoreboard.best_times
