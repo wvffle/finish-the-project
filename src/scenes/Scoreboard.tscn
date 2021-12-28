@@ -78,7 +78,7 @@ size_flags_horizontal = 3
 margin_right = 377.0
 margin_bottom = 35.0
 size_flags_vertical = 7
-text = "%d"
+text = "%s"
 align = 2
 valign = 1
 
@@ -88,7 +88,7 @@ margin_right = 377.0
 margin_bottom = 75.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-text = "%d"
+text = "%s"
 align = 2
 valign = 1
 

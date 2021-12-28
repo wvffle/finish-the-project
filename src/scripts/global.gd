@@ -36,9 +36,12 @@ var _stage = 0
 
 var _first_start = true
 
-var wins = [0,0,0];
-var losses = [0,0,0];
-var best_times = [0,0,0];
+var wins = [0,0,0]
+var losses = [0,0,0]
+var best_times = [0,0,0]
+
+var high_score = 0
+var highest_level = 0
 
 # === DEV START ===
 func start_game():
@@ -113,10 +116,11 @@ func _next_stage():
 func game_lost():
 	# TODO: Display score screen
 	# TODO: Save score
+	update_main_scoreboard()
 	emit_signal('game_lost', score)
 	print('game lost')
 	print('score: ' + str(score))
-
+	
 	# TODO: Remove
 	# dev:blank-next-line
 	get_tree().change_scene("res://src/scenes/Game.tscn")
@@ -130,6 +134,14 @@ func update_stage_scoreboard(stage_won, remaining_time):
 		best_times[_stage] = max(best_times[_stage], stage_time - remaining_time);
 	else:
 		losses[_stage] += 1;
+	save_scoreboard()
+
+
+func update_main_scoreboard():
+	if score > high_score:
+		high_score = score
+	if level > highest_level:
+		highest_level = level 
 	save_scoreboard()
 
 
@@ -158,6 +170,8 @@ func save_config():
 	
 func save_scoreboard():
 	var scoreboard_dict = {
+		"high_score": high_score,
+		"highest_level": highest_level,
 		"wins": wins,
 		"losses": losses,
 		"best_times": best_times,
@@ -205,6 +219,8 @@ func load_scoreboard():
 		
 	var scoreboard = file.load_file(SCOREBOARD_FILE)
 	
+	high_score = scoreboard.high_score
+	highest_level = scoreboard.highest_level
 	wins = scoreboard.wins
 	losses = scoreboard.losses
 	best_times = scoreboard.best_times

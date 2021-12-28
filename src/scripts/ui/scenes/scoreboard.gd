@@ -4,6 +4,9 @@ extends Node2D
 func _ready():
 	global.load_scoreboard()
 	
+	$ScoreboardMain/MainScoreboard/Scores/HighScore.text = str(global.high_score)
+	$ScoreboardMain/MainScoreboard/Scores/HighestLevelAchieved.text = str(global.highest_level)
+	
 	$ScoreboardMain/StagesScoreboard/Wins/Tester.text = str(global.wins[2])
 	$ScoreboardMain/StagesScoreboard/Wins/Developer.text = str(global.wins[1])
 	$ScoreboardMain/StagesScoreboard/Wins/ProjectManager.text = str(global.wins[0])
