@@ -215,6 +215,12 @@ func load_config():
 
 func load_scoreboard():
 	if not file.file_exists(SCOREBOARD_FILE):
+		wins = [0,0,0]
+		losses = [0,0,0]
+		best_times = [0,0,0]
+
+		high_score = 0
+		highest_level = 0
 		return
 		
 	var scoreboard = file.load_file(SCOREBOARD_FILE)
