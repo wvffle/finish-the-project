@@ -4,6 +4,7 @@ extends Node
 const DEFAULT_STAGE_TIME = 45
 const SAVE_FILE = "save.json"
 const CONFIG_FILE = "config.json"
+const STATE_FILE = "state.json"
 const SCOREBOARD_FILE = "scoreboard.json"
 
 const _STAGE_ORDER = [
@@ -17,12 +18,20 @@ const DIFFICULTY_MODIFIERS = [
 	1,
 	0.8
 ]
+const BONUS_COST = [1500, 3000]
+const BONUS_TIME = [5, 10]
+const BONUS_NAME = [
+	'coffee',
+	'pizza',
+]
 
 signal stage_lost(remaining_time, score)
 signal stage_won(remaining_time, score)
 
 signal game_lost(score)
+signal bonus_use(bonus_time)
 
+var bonus_stock = [0,0]
 
 var lives = 3
 var stage_time = 0
@@ -49,7 +58,7 @@ func start_game():
 	level = 1
 	score = 0
 	_stage = 0
-	
+	save_state()
 	# dev:skip-next-line
 	print('new game')
 	
@@ -64,6 +73,9 @@ func start_game():
 func start_stage(stage):
 	stage_time = (DEFAULT_STAGE_TIME - (DEFAULT_STAGE_TIME * pow(level, 2) / 1600)) * DIFFICULTY_MODIFIERS[difficulty]
 	save()
+	load_state()
+	print('coffee_bonus_stock: ' + str(bonus_stock[0]))
+	print('pizza_bonus_stock: ' + str(bonus_stock[1]))
 	print('lives: ' + str(lives))
 	print('level: ' + str(level))
 	print('difficulty mode: ' + str(difficulty))
@@ -76,6 +88,7 @@ func start_stage(stage):
 func stage_won(remaining_time):
 	var delta = floor(100 + 100 * remaining_time / max(stage_time, 0.001))
 	score += delta
+	save_state()
 	emit_signal('stage_won', remaining_time, score)
 	print('stage won')
 	update_stage_scoreboard(true, remaining_time)
@@ -85,7 +98,7 @@ func stage_won(remaining_time):
 func stage_lost(remaining_time):
 	lives -= 1
 	update_stage_scoreboard(false, remaining_time)
-		
+
 	if lives == 0:
 		# dev:blank-next-line
 		return game_lost()
@@ -120,7 +133,7 @@ func game_lost():
 	emit_signal('game_lost', score)
 	print('game lost')
 	print('score: ' + str(score))
-	
+
 	# TODO: Remove
 	# dev:blank-next-line
 	get_tree().change_scene("res://src/scenes/Game.tscn")
@@ -141,7 +154,7 @@ func update_main_scoreboard():
 	if score > high_score:
 		high_score = score
 	if level > highest_level:
-		highest_level = level 
+		highest_level = level
 	save_scoreboard()
 
 
@@ -150,7 +163,6 @@ func save():
 		"level": level,
 		"stage": _stage,
 		"lives": lives,
-		"score": score,
 		"difficulty": difficulty,
 	}
 	
@@ -166,8 +178,8 @@ func save_config():
 	}
 
 	file.save_file(CONFIG_FILE, config_dict)
-	
-	
+
+
 func save_scoreboard():
 	var scoreboard_dict = {
 		"high_score": high_score,
@@ -176,10 +188,18 @@ func save_scoreboard():
 		"losses": losses,
 		"best_times": best_times,
 	}
-	
+
 	file.save_file(SCOREBOARD_FILE, scoreboard_dict)
 
-	
+func save_state():
+	var state_dict = {
+		"bonus_stock": bonus_stock,
+		"score": score,
+	}
+
+	file.save_file(STATE_FILE, state_dict)
+
+
 func load_game():
 	if not file.file_exists(SAVE_FILE):
 		return
@@ -188,7 +208,6 @@ func load_game():
 	
 	level = save.level
 	lives = save.lives
-	score = save.score
 	_stage = save.stage
 	difficulty = save.difficulty
 	start_stage(_STAGE_ORDER[_stage])
@@ -212,6 +231,15 @@ func load_config():
 			sounds.mainTheme.play()
 	_first_start = false
 
+func load_state():
+	if not file.file_exists(STATE_FILE):
+		return
+
+	var state = file.load_file(STATE_FILE)
+
+	bonus_stock = state.bonus_stock
+	score = state.score
+
 
 func load_scoreboard():
 	if not file.file_exists(SCOREBOARD_FILE):
@@ -222,9 +250,9 @@ func load_scoreboard():
 		high_score = 0
 		highest_level = 0
 		return
-		
+
 	var scoreboard = file.load_file(SCOREBOARD_FILE)
-	
+
 	high_score = scoreboard.high_score
 	highest_level = scoreboard.highest_level
 	wins = scoreboard.wins

@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://src/scripts/ui/buttons/coffeeButton.gd" type="Script" id=1]
+[ext_resource path="res://src/scripts/ui/buttons/buyBonusButtons.gd" type="Script" id=1]
 [ext_resource path="res://ui.tres" type="Theme" id=2]
 [ext_resource path="res://src/scripts/ui/buttons/backButton.gd" type="Script" id=3]
-[ext_resource path="res://src/scripts/ui/buttons/pizzaButton.gd" type="Script" id=4]
 
 [node name="Node2D" type="Node2D"]
 
@@ -12,6 +11,7 @@ margin_left = 10.0
 margin_top = 7.0
 margin_right = 1032.0
 margin_bottom = 611.0
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -29,20 +29,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="coffeeButton" type="Button" parent="Control"]
+[node name="__buy_coffee_button__" type="Button" parent="Control"]
 margin_left = 24.0
 margin_top = 285.0
 margin_right = 448.0
 margin_bottom = 371.0
 rect_pivot_offset = Vector2( 158, 43 )
 theme = ExtResource( 2 )
+disabled = true
 text = "Buy coffee"
-script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="pizzaButton" type="Button" parent="Control"]
+[node name="__buy_pizza_button__" type="Button" parent="Control"]
 margin_left = 564.0
 margin_top = 287.0
 margin_right = 988.0
@@ -50,15 +50,52 @@ margin_bottom = 373.0
 rect_pivot_offset = Vector2( 158, 43 )
 theme = ExtResource( 2 )
 text = "Buy pizza"
-script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="__stock_coffee_counter__" type="Label" parent="Control"]
+margin_left = 26.329
+margin_top = 199.11
+margin_right = 448.329
+margin_bottom = 283.11
+theme = ExtResource( 2 )
+text = "Coffee stock : 0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="__stock_pizza_counter__" type="Label" parent="Control"]
+margin_left = 564.432
+margin_top = 200.891
+margin_right = 986.432
+margin_bottom = 284.891
+theme = ExtResource( 2 )
+text = "Pizza stock : 0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="__score__label" type="Label" parent="Control"]
+margin_left = 35.636
+margin_top = 17.818
+margin_right = 75.636
+margin_bottom = 35.818
+theme = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [connection signal="mouse_entered" from="Control/backButton" to="Control/backButton" method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="Control/backButton" to="Control/backButton" method="_on_backButton_pressed"]
-[connection signal="mouse_entered" from="Control/coffeeButton" to="Control/backButton" method="_on_Button_mouse_entered"]
-[connection signal="pressed" from="Control/coffeeButton" to="Control/backButton" method="_on_coffeeButton_pressed"]
-[connection signal="pressed" from="Control/coffeeButton" to="Control/coffeeButton" method="_on_coffeeButton_pressed"]
-[connection signal="mouse_entered" from="Control/pizzaButton" to="Control/backButton" method="_on_Button_mouse_entered"]
-[connection signal="pressed" from="Control/pizzaButton" to="Control/pizzaButton" method="_on_pizzaButton_pressed"]
+[connection signal="mouse_entered" from="Control/__buy_coffee_button__" to="Control" method="_on_Button_mouse_entered"]
+[connection signal="mouse_entered" from="Control/__buy_coffee_button__" to="Control/backButton" method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="Control/__buy_coffee_button__" to="Control" method="_on_Button_pressed"]
+[connection signal="pressed" from="Control/__buy_coffee_button__" to="Control/backButton" method="_on_coffeeButton_pressed"]
+[connection signal="mouse_entered" from="Control/__buy_pizza_button__" to="Control" method="_on_Button_mouse_entered"]
+[connection signal="mouse_entered" from="Control/__buy_pizza_button__" to="Control/backButton" method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="Control/__buy_pizza_button__" to="Control" method="_on_Button_pressed"]
